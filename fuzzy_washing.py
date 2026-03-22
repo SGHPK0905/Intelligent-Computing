@@ -144,6 +144,8 @@ if __name__ == "__main__":
         
         plt.title(title, fontsize=14, fontweight='bold')
         
+        #plt.show() (Dùng để dừng lại cho xem rồi mới lưu, có thể dùng hoặc không)
+        
         save_path = os.path.join(output_plot_dir, filename)
         
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
