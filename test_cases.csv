@@ -1,9 +1,6 @@
 ID,Dirt_Amount,Dirt_Type,Sensitivity,Cloth_Amount,Ghi_chu
-1,90,95,2,8,Do_Bao_Ho_Lao_Dong_Rat_Ban
-2,15,10,9,2,Ao_Lua_Somi_It_Ban
-3,40,40,5,5,Do_Cotton_Mac_Hang_Ngay
-4,80,80,8,3,Do_Tre_Em_Dinh_Sua_Thuc_An
-5,60,20,5,9,Giat_Chan_Men_Nhieu_Bui
-6,85,90,9,2,Vay_Lua_Dinh_Nhieu_Dau_Mo
-7,60,10,5,10,Chau_Do_Tap_Gym_Ca_Tuan
-8,100,100,1,1,Gie_Lau_Sua_Xe_Nho_Xiu
+1,95,90,1,8.5,Heavy_Duty_Bao_Ho_Lao_Dong
+2,20,10,9,1.5,Delicates_Ao_So_Mi_Lua
+3,50,50,5,5.0,Mixed_Fabric_Do_Mac_Nha
+4,85,30,8,3.5,Baby_Care_Do_Tre_Em
+5,40,15,4,9.0,Duvet_Chan_Men
