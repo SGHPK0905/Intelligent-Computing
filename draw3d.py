@@ -47,8 +47,14 @@ for kb in danh_sach_kich_ban:
     ax.set_ylabel('Mức dầu mỡ (%)', fontweight='bold', labelpad=10)
     ax.set_zlabel('Tốc độ vắt (vòng/phút)', fontweight='bold', labelpad=10)
     plt.title(f"Mặt Cong 3D: TỐC ĐỘ VẮT\n{kb['ten']}", fontsize=13, fontweight='bold')
+    
+    print(f"   -> Đang hiện popup cho {kb['ten']}. Hãy xoay để xem và TẮT để lưu...")
+    plt.show() 
+
     save_path = os.path.join(output_plot_dir, kb['filename'])
+    
     plt.savefig(save_path, dpi=300, bbox_inches='tight')
+    
     plt.close()
 
 print(f"\n--- HOÀN TẤT! Hãy mở thư mục '{output_plot_dir}' để xem các ảnh .png đã được tạo. ---")
