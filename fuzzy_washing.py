@@ -138,7 +138,8 @@ if __name__ == "__main__":
     for var, title, filename in variables_to_plot:
         print(f"-> Đang vẽ và lưu biểu đồ: {filename}")
         
-        var.view()
+        var.view(sim=washing_sim)
+        
         fig = plt.gcf()
         
         plt.title(title, fontsize=14, fontweight='bold')
