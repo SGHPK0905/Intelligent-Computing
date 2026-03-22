@@ -12,7 +12,7 @@ dirt_type = ctrl.Antecedent(np.arange(0, 101, 1), 'dirt_type')
 cloth_sensitivity = ctrl.Antecedent(np.arange(0, 11, 1), 'cloth_sensitivity')
 cloth_amount = ctrl.Antecedent(np.arange(0, 11, 1), 'cloth_amount')
 
-wash_time = ctrl.Consequent(np.arange(0, 61, 1), 'wash_time')
+wash_time = ctrl.Consequent(np.arange(0, 181, 1), 'wash_time')
 spin_speed = ctrl.Consequent(np.arange(0, 1401, 1), 'spin_speed')
 water_amount = ctrl.Consequent(np.arange(0, 101, 1), 'water_amount')
 detergent = ctrl.Consequent(np.arange(0, 101, 1), 'detergent')
