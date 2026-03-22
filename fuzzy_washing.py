@@ -46,19 +46,27 @@ rule10 = ctrl.Rule(cloth_sensitivity['less_sensitive'] & dirt_amount['large'], (
 rule11 = ctrl.Rule(dirt_amount['small'], wash_time['short'])
 rule12 = ctrl.Rule(dirt_amount['medium'], wash_time['medium'])
 rule13 = ctrl.Rule(dirt_amount['large'], wash_time['long'])
+rule14 = ctrl.Rule(dirt_type['not_greasy'], water_temp['low'])
+rule15 = ctrl.Rule(dirt_type['medium'], water_temp['normal'])
+rule16 = ctrl.Rule(cloth_amount['medium'], (water_amount['normal'], detergent['normal']))
+rule17 = ctrl.Rule(cloth_sensitivity['normal_sensitive'], spin_speed['medium'])
+rule18 = ctrl.Rule(cloth_amount['large'], (wash_time['long'], spin_speed['high']))
+rule19 = ctrl.Rule(cloth_amount['small'], (wash_time['short'], spin_speed['low']))
 
-washing_ctrl = ctrl.ControlSystem([rule1, rule2, rule3, rule4, rule5, rule6, rule7, rule8, rule9, rule10, rule11, rule12, rule13])
+washing_ctrl = ctrl.ControlSystem([rule1, rule2, rule3, rule4, rule5, rule6, rule7, rule8, rule9, rule10, rule11, rule12, rule13, rule14, rule15, rule16, rule17, rule18, rule19])
 washing_sim = ctrl.ControlSystemSimulation(washing_ctrl)
 
 # ==========================================
 # 3. HÀM DÀNH CHO GIAO DIỆN WEB
 # ==========================================
 def predict_wash(dirt_amt, dirt_typ, cloth_sens, cloth_amt):
-    """Hàm này nhận 4 thông số, giải mờ và trả về 5 kết quả"""
+    global washing_sim 
+    
     washing_sim.input['dirt_amount'] = dirt_amt
     washing_sim.input['dirt_type'] = dirt_typ
     washing_sim.input['cloth_sensitivity'] = cloth_sens
     washing_sim.input['cloth_amount'] = cloth_amt
+   
     washing_sim.compute()
     
     return {
@@ -68,7 +76,7 @@ def predict_wash(dirt_amt, dirt_typ, cloth_sens, cloth_amt):
         'detergent': round(washing_sim.output['detergent'], 1),
         'water_temp': round(washing_sim.output['water_temp'], 1)
     }
-
+    
 # ==========================================
 # 4. CHẠY TEST CSV & VẼ ĐỒ THỊ 2D
 # ==========================================
