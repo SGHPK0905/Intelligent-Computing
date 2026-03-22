@@ -82,7 +82,7 @@ if __name__ == "__main__":
             results.append(res_dict)
             
             print(f"[{row['ID']}] {row['Ghi_chu']}:")
-            print(f"   -> Giặt: {res['wash_time']} phút | Vắt: {res['spin_speed']} rpm | Nước: {res['water_amount']}% | Nhiệt: {res['water_temp']}°C")
+            print(f"   -> Giặt: {res['wash_time']} phút | Vắt: {res['spin_speed']} rpm | Nước: {res['water_amount']}% | Xà phòng: {res['detergent']}% | Nhiệt: {res['water_temp']}°C")
             print("-" * 60)
         pd.DataFrame(results).to_csv('result.csv', index=False)
     except FileNotFoundError:
