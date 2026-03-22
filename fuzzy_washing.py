@@ -137,10 +137,16 @@ if __name__ == "__main__":
 
     for var, title, filename in variables_to_plot:
         print(f"-> Đang vẽ và lưu biểu đồ: {filename}")
-        fig, ax = var.view()
-        ax.set_title(title, fontsize=14, fontweight='bold')
+        
+        var.view()
+        fig = plt.gcf()
+        
+        plt.title(title, fontsize=14, fontweight='bold')
+        
         save_path = os.path.join(output_plot_dir, filename)
+        
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
+        
         plt.close(fig)
 
     print(f"\n--- HOÀN TẤT! Hãy mở thư mục '{output_plot_dir}' để xem 9 biểu đồ .png đã được tạo. ---")
