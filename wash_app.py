@@ -118,7 +118,6 @@ def generate_advice(res, fabric):
 if "preset" not in st.session_state:
     st.session_state.preset = "👕  Đồ thường ngày"
 
-# Khai báo trực tiếp các key cho thanh trượt
 if "manual_dirt" not in st.session_state:
     st.session_state.manual_dirt = 50
     st.session_state.manual_greasy = 50
@@ -167,14 +166,12 @@ with col_input:
     fabric_options   = list(FABRIC_TO_SENSITIVITY.keys())
 
     if manual:
-        # Dùng trực tiếp tham số 'key'. Streamlit sẽ tự động nhớ và cập nhật siêu mượt!
         selected_fabric = st.selectbox("Loại vải", options=fabric_options, key="manual_fabric")
         dirt_amount = st.slider(f"Độ bẩn — *{label_dirt(st.session_state.manual_dirt)}*", 0, 100, format="%d%%", key="manual_dirt")
         dirt_type = st.slider(f"Mức dầu mỡ — *{label_greasy(st.session_state.manual_greasy)}*", 0, 100, format="%d%%", key="manual_greasy")
         cloth_amount = st.slider("Khối lượng quần áo (kg)", 0.0, 10.0, step=0.5, key="manual_weight")
         cloth_sensitivity = FABRIC_TO_SENSITIVITY[selected_fabric]
     else:
-        # Các kịch bản khóa cứng thì dùng key riêng (như auto_dirt) để không đụng chạm bộ nhớ
         current = PRESETS[st.session_state.preset]
         selected_fabric = st.selectbox("Loại vải", options=fabric_options, index=fabric_options.index(current["fabric"]), disabled=True, key="auto_fab")
         dirt_amount = st.slider(f"Độ bẩn — *{label_dirt(current['dirt'])}*", 0, 100, value=current["dirt"], format="%d%%", disabled=True, key="auto_dirt")
