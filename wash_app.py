@@ -161,47 +161,21 @@ with col_input:
                 st.rerun()
 
     st.markdown("---")
-    current = PRESETS[st.session_state.preset]
-    manual  = (st.session_state.preset == "⚙️  Tùy chỉnh thủ công")
-    st.markdown("**Điều chỉnh chi tiết:**")
-
-    fabric_options   = list(FABRIC_TO_SENSITIVITY.keys())
-    default_fab_idx  = fabric_options.index(current["fabric"])
-    selected_fabric  = st.selectbox(
-        "Loại vải",
-        options=fabric_options,
-        index=default_fab_idx,
-        disabled=not manual,
-        help="Hệ thống AI DD tự động nhận diện qua chuyển động lồng giặt"
-    )
-    cloth_sensitivity = FABRIC_TO_SENSITIVITY[selected_fabric]
-
-    dirt_amount = st.slider(
-        f"Độ bẩn — *{label_dirt(current['dirt'])}*",
-        0, 100, value=current["dirt"], format="%d%%", disabled=not manual
-    )
-    dirt_type = st.slider(
-        f"Mức dầu mỡ — *{label_greasy(current['greasy'])}*",
-        0, 100, value=current["greasy"], format="%d%%", disabled=not manual
-    )
-    cloth_amount = st.slider(
-        "Khối lượng quần áo (kg)",
-        0.0, 10.0, value=current["weight"], step=0.5, disabled=not manual
-    )
-
+    
     manual  = (st.session_state.preset == "⚙️  Tùy chỉnh thủ công")
     st.markdown("**Điều chỉnh chi tiết:**")
 
     fabric_options   = list(FABRIC_TO_SENSITIVITY.keys())
 
     if manual:
+        # Nhánh 1: Nếu chọn Custom -> Lấy số từ Két sắt (Session State) và cho phép kéo
         selected_fabric = st.selectbox("Loại vải", options=fabric_options, index=fabric_options.index(st.session_state.custom_state["fabric"]))
-        st.session_state.custom_state["fabric"] = selected_fabric # Cập nhật ngay
+        st.session_state.custom_state["fabric"] = selected_fabric
         
-        dirt_amount = st.slider("Độ bẩn", 0, 100, value=st.session_state.custom_state["dirt"], format="%d%%")
+        dirt_amount = st.slider(f"Độ bẩn — *{label_dirt(st.session_state.custom_state['dirt'])}*", 0, 100, value=st.session_state.custom_state["dirt"], format="%d%%")
         st.session_state.custom_state["dirt"] = dirt_amount
         
-        dirt_type = st.slider("Mức dầu mỡ", 0, 100, value=st.session_state.custom_state["greasy"], format="%d%%")
+        dirt_type = st.slider(f"Mức dầu mỡ — *{label_greasy(st.session_state.custom_state['greasy'])}*", 0, 100, value=st.session_state.custom_state["greasy"], format="%d%%")
         st.session_state.custom_state["greasy"] = dirt_type
         
         cloth_amount = st.slider("Khối lượng quần áo (kg)", 0.0, 10.0, value=st.session_state.custom_state["weight"], step=0.5)
@@ -209,11 +183,14 @@ with col_input:
         
         cloth_sensitivity = FABRIC_TO_SENSITIVITY[selected_fabric]
     else:
+        # Nhánh 2: Nếu chọn Preset -> Lấy số từ từ điển PRESETS và Khóa thanh trượt (disabled=True)
         current = PRESETS[st.session_state.preset]
         selected_fabric = st.selectbox("Loại vải", options=fabric_options, index=fabric_options.index(current["fabric"]), disabled=True)
-        dirt_amount = st.slider("Độ bẩn", 0, 100, value=current["dirt"], format="%d%%", disabled=True)
-        dirt_type = st.slider("Mức dầu mỡ", 0, 100, value=current["greasy"], format="%d%%", disabled=True)
+        
+        dirt_amount = st.slider(f"Độ bẩn — *{label_dirt(current['dirt'])}*", 0, 100, value=current["dirt"], format="%d%%", disabled=True)
+        dirt_type = st.slider(f"Mức dầu mỡ — *{label_greasy(current['greasy'])}*", 0, 100, value=current["greasy"], format="%d%%", disabled=True)
         cloth_amount = st.slider("Khối lượng quần áo (kg)", 0.0, 10.0, value=current["weight"], step=0.5, disabled=True)
+        
         cloth_sensitivity = FABRIC_TO_SENSITIVITY[current["fabric"]]
 
 # ══════════════════════════════════════
