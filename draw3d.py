@@ -50,19 +50,20 @@ for kb in danh_sach_kich_ban:
                 z[i, j] = np.nan
 
     # Cấu hình vẽ 3D
-    fig = plt.figure(figsize=(11, 7))
+    fig = plt.figure(figsize=(12, 8))
     ax  = fig.add_subplot(111, projection='3d')
-    surf = ax.plot_surface(x, y, z, cmap='viridis', linewidth=0, antialiased=True)
-    fig.colorbar(surf, ax=ax, shrink=0.5, aspect=10, label='RPM')
+    surf = ax.plot_surface(x, y, z, cmap='viridis', linewidth=0, antialiased=True, alpha=0.9)
+    cbar = fig.colorbar(surf, ax=ax, shrink=0.5, aspect=10, pad=0.2)
+    cbar.set_label('Đơn vị: RPM (vòng/phút)', fontweight='bold', rotation=270, labelpad=25)
+    cbar.ax.tick_params(labelsize=10)   
 
-    ax.set_xlabel('Độ nhạy vải (0=Dày, 10=Lụa)', fontweight='bold', labelpad=10)
-    ax.set_ylabel('Mức dầu mỡ (%)',               fontweight='bold', labelpad=10)
-    ax.set_zlabel('Tốc độ vắt (vòng/phút)',        fontweight='bold', labelpad=10)
-    plt.title(f"Mặt Cong 3D: TỐC ĐỘ VẮT\n{kb['ten']}", fontsize=13, fontweight='bold')
+    ax.set_xlabel('Độ nhạy vải (0=Dày, 10=Lụa)', fontweight='bold', labelpad=15)
+    ax.set_ylabel('Mức dầu mỡ (%)',               fontweight='bold', labelpad=15)
+    ax.set_zlabel('Tốc độ vắt (vòng/phút)',        fontweight='bold', labelpad=15)
+    plt.title(f"Mặt Cong 3D: TỐC ĐỘ VẮT\n{kb['ten']}", fontsize=15, fontweight='bold', pad=30)
 
-    # FIX: Lưu TRƯỚC, hiện popup SAU — tránh lưu ảnh trắng
     save_path = os.path.join(output_plot_dir, kb['filename'])
-    plt.savefig(save_path, dpi=300, bbox_inches='tight')
+    plt.savefig(save_path, dpi=300, bbox_inches='tight', pad_inches=0.2)
     print(f"   -> Đã lưu ảnh tại: {save_path}")
 
     print(f"   -> Đang hiện popup cho: {kb['ten']}. Hãy xoay để xem rồi tắt để tiếp tục...")
