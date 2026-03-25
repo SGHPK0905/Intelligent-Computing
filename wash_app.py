@@ -364,28 +364,31 @@ with col_output:
             st.markdown("**Trực quan hóa mức độ kích hoạt các tập mờ đầu ra**")
             st.caption("Đường đứt đoạn dọc = giá trị thực tế. Vùng tô màu = mức độ thuộc (membership).")
 
+            import fuzzy_washing as fw
+            active_sim = fw.washing_sim
+
             f1, f2, f3 = st.columns(3)
             with f1:
                 st.markdown("⏱️ **Thời gian giặt**")
-                wash_time.view(sim=washing_sim)
+                wash_time.view(sim=active_sim)
                 st.pyplot(plt.gcf()); plt.close()
             with f2:
                 st.markdown("🌪️ **Tốc độ vắt**")
-                spin_speed.view(sim=washing_sim)
+                spin_speed.view(sim=active_sim)
                 st.pyplot(plt.gcf()); plt.close()
             with f3:
                 st.markdown("🌡️ **Nhiệt độ nước**")
-                water_temp.view(sim=washing_sim)
+                water_temp.view(sim=active_sim)
                 st.pyplot(plt.gcf()); plt.close()
 
             f4, f5 = st.columns(2)
             with f4:
                 st.markdown("💧 **Lượng nước**")
-                water_amount.view(sim=washing_sim)
+                water_amount.view(sim=active_sim)
                 st.pyplot(plt.gcf()); plt.close()
             with f5:
                 st.markdown("🫧 **Xà phòng**")
-                detergent.view(sim=washing_sim)
+                detergent.view(sim=active_sim)
                 st.pyplot(plt.gcf()); plt.close()
 
         # ── TAB 4: MẶT CONG 3D ───────────────────
