@@ -1,0 +1,210 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage[vietnamese]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{tocloft}
+\usepackage{titlesec}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\geometry{
+    a4paper,
+    total={170mm,257mm},
+    left=30mm,
+    right=20mm,
+    top=20mm,
+    bottom=20mm,
+}
+
+\begin{document}
+\begin{titlepage}
+    \begin{tikzpicture}[remember picture, overlay]
+        \draw[color=cyan!70!blue, line width = 2pt] 
+            ($(current page.north west) + (2cm,-1.5cm)$) 
+            rectangle 
+            ($(current page.south east) + (-1.5cm,1.5cm)$);
+        \draw[color=cyan!70!blue, line width = 0.5pt] 
+            ($(current page.north west) + (2.1cm,-1.6cm)$) 
+            rectangle 
+            ($(current page.south east) + (-1.6cm,1.6cm)$);
+    \end{tikzpicture}
+
+    \begin{center}
+        \vspace*{0.8cm}
+        \textbf{\large BỘ GIÁO DỤC VÀ ĐÀO TẠO} \\[0.2cm]
+        \textbf{\Large TRƯỜNG ĐẠI HỌC SÀI GÒN} \\[0.2cm]
+        \textbf{\large KHOA TOÁN - ỨNG DỤNG} \\[2.5cm]
+
+        \includegraphics[width=6cm]{logo.png} \\[0.5cm] 
+        
+        \vspace{1.5cm}
+        \textbf{\Large BÁO CÁO ĐỒ ÁN} \\[0.5cm]
+        \textbf{\large Học phần: Tính Toán Thông Minh} \\[2cm]
+
+        \begin{flushleft}
+            \large
+            \hspace{1.5cm} \textbf{Giảng viên hướng dẫn:} Huỳnh Minh Trí \\[0.5cm]
+            \hspace{1.5cm} \textbf{Sinh viên thực hiện:} \\[0.2cm]
+            \hspace{2.5cm} 1. Nguyễn Trương Cao Sơn \hspace{0.5cm} MSSV: 3123580040 \\[0.2cm]
+            \hspace{2.5cm} 2. Phan Đồng Minh Quân \hspace{0.75cm} MSSV: 3123580038 \\[0.2cm]
+            \hspace{2.5cm} 3. Võ Minh Tiến \hspace{2.3cm} MSSV: 3123580053 \\[0.5cm]
+        \end{flushleft}
+
+        \vfill
+        {\large TP Hồ Chí Minh, năm 2026}
+        \vspace*{0.5cm}
+    \end{center}
+\end{titlepage}
+
+% ====================================================
+% MỤC LỤC & DANH MỤC
+% ====================================================
+\newpage
+\pagenumbering{roman}
+
+\section*{Lời cảm ơn}
+\addcontentsline{toc}{section}{Lời cảm ơn}
+Nhóm sinh viên xin gửi lời cảm ơn chân thành đến giảng viên hướng dẫn...
+
+\newpage
+\tableofcontents
+
+\newpage
+\listoffigures
+\addcontentsline{toc}{section}{Danh mục hình ảnh}
+
+\newpage
+\listoftables
+\addcontentsline{toc}{section}{Danh mục bảng biểu}
+
+% ====================================================
+% NỘI DUNG CHÍNH (SƯỜN BÁO CÁO)
+% ====================================================
+\newpage
+\pagenumbering{arabic}
+
+\section{Giới thiệu}
+\subsection{Đặt vấn đề}
+Trình bày những hạn chế của máy giặt sử dụng logic rõ (rách đồ lụa, lãng phí nước...).
+
+\subsection{Mục tiêu đề tài}
+Xây dựng hệ thống suy diễn mờ giải quyết bài toán trên.
+
+\subsection{Cấu trúc báo cáo}
+
+% ----------------------------------------------------
+\section{Cơ sở lý thuyết}
+\subsection{Tổng quan về Logic Mờ (Fuzzy Logic)}
+\subsection{Biến ngôn ngữ và Hàm liên thuộc}
+\subsection{Hệ suy diễn Mamdani}
+\subsection{Giải mờ (Defuzzification) bằng phương pháp Trọng tâm (COA)}
+
+\begin{equation}
+z^* = \frac{\int \mu(z) \cdot z \, dz}{\int \mu(z) \, dz}
+\end{equation}
+
+% ----------------------------------------------------
+\section{Thiết kế hệ thống điều khiển máy giặt}
+
+\subsection{Sơ đồ khối hệ thống}
+Hệ thống điều khiển máy giặt thông minh LG AI DD sử dụng logic mờ được thiết kế dựa trên 4 biến đầu vào (Inputs) thu thập từ các cảm biến thực tế và 5 biến đầu ra (Outputs) để ra lệnh cho phần cứng máy giặt.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.85\textwidth]{images/so_do_khoi.png}
+%     \caption{Sơ đồ khối kiến trúc hệ thống điều khiển logic mờ}
+%     \label{fig:sodokhoi}
+% \end{figure}
+
+\subsection{Định nghĩa biến đầu vào (Inputs)}
+Các biến đầu vào được mô hình hóa bằng hàm liên thuộc dạng tam giác (Trimf) để tối ưu hóa quá trình tính toán:
+\begin{itemize}
+    \item \textbf{Khối lượng quần áo (Cloth Amount):} Thang đo từ $0 - 10$ kg (Dựa trên tải trọng thực tế lớn nhất của lồng giặt). Được chia thành 3 tập mờ: Ít ($0 - 4$ kg), Vừa ($2 - 8$ kg), Nhiều ($6 - 10$ kg).
+    \item \textbf{Độ bẩn (Dirt Amount):} Thang đo từ $0 - 100\%$ (Quy đổi từ cảm biến độ đục quang học). Chia thành 3 tập mờ: Ít bẩn ($0 - 45\%$), Bẩn vừa ($25 - 75\%$), Rất bẩn ($55 - 100\%$).
+    \item \textbf{Mức dầu mỡ / Loại bẩn (Dirt Type):} Thang đo từ $0 - 100\%$. Chia thành 3 tập mờ: Không dầu mỡ ($0 - 45\%$), Hỗn hợp ($25 - 75\%$), Nhiều dầu mỡ ($55 - 100\%$).
+    \item \textbf{Độ nhạy cảm vải (Cloth Sensitivity):} Thang đo từ $0 - 10$ điểm (Công nghệ AI DD phân tích độ cứng/mềm của sợi vải). Chia thành 3 tập mờ: Ít nhạy cảm/Vải dày ($0 - 4$), Bình thường ($2 - 8$), Rất nhạy cảm/Vải mỏng ($6 - 10$).
+\end{itemize}
+
+\subsection{Định nghĩa biến đầu ra (Outputs)}
+Các thông số đầu ra quyết định chu trình giặt bao gồm:
+\begin{itemize}
+    \item \textbf{Thời gian giặt (Wash Time):} Thang đo $0 - 180$ phút. Chia thành 5 tập mờ: Rất ngắn, Ngắn, Vừa, Dài, Rất dài.
+    \item \textbf{Tốc độ vắt (Spin Speed):} Thang đo $0 - 1400$ vòng/phút (RPM). Chia thành 5 tập mờ: Rất thấp, Thấp, Vừa, Cao, Rất cao.
+    \item \textbf{Lượng nước (Water Amount):} Thang đo $0 - 100\%$. Chia thành 3 tập mờ: Ít, Bình thường, Nhiều.
+    \item \textbf{Lượng xà phòng (Detergent):} Thang đo $0 - 100\%$. Chia thành 3 tập mờ: Ít, Bình thường, Nhiều.
+    \item \textbf{Nhiệt độ nước (Water Temp):} Thang đo $0 - 100^\circ$C. Chia thành 3 tập mờ: Thấp ($20-30^\circ$C), Vừa ($40^\circ$C), Cao ($60-95^\circ$C).
+\end{itemize}
+
+\subsection{Tập luật mờ (Fuzzy Rule Base)}
+Hệ thống sử dụng cơ chế suy diễn Mamdani với tổng cộng \textbf{19 quy luật mờ} (IF-THEN Rules). Tập luật này bao gồm các luật kết hợp toàn diện và các "Luật ghi đè an toàn" (Safety Override Rules) để bảo vệ sợi vải trong các trường hợp cực đoan. Một số luật tiêu biểu được trích xuất trong Bảng \ref{tab:fuzzy_rules}.
+
+\begin{table}[H]
+    \centering
+    \caption{Trích xuất một số luật mờ cốt lõi của hệ thống}
+    \label{tab:fuzzy_rules}
+    \resizebox{\textwidth}{!}{
+    \renewcommand{\arraystretch}{1.3} % Tăng khoảng cách các dòng trong bảng
+    \begin{tabular}{|c|p{7cm}|p{7.5cm}|}
+        \hline
+        \textbf{Luật} & \textbf{Mệnh đề điều kiện (IF)} & \textbf{Mệnh đề kết luận (THEN)} \\
+        \hline
+        \textbf{Rule 1} & Độ bẩn Nhiều \textbf{AND} Dầu mỡ Nhiều \textbf{AND} Vải Ít nhạy cảm \textbf{AND} Khối lượng Nhiều & Thời gian Rất dài, Vắt Rất cao, Nước Nhiều, Xà phòng Nhiều, Nhiệt Cao \\
+        \hline
+        \textbf{Rule 2} & Độ bẩn Ít \textbf{AND} Không dầu mỡ \textbf{AND} Vải Rất nhạy cảm \textbf{AND} Khối lượng Ít & Thời gian Rất ngắn, Vắt Rất thấp, Nước Ít, Xà phòng Ít, Nhiệt Thấp \\
+        \hline
+        \textbf{Rule 8} & Dầu mỡ Nhiều & Nhiệt độ Cao, Xà phòng Nhiều \newline \textit{(Ưu tiên dùng nước nóng để hòa tan dầu mỡ)} \\
+        \hline
+        \textbf{Rule 9} & Vải Rất nhạy cảm & Thời gian Ngắn, Vắt Thấp \newline \textit{(Luật an toàn: Khóa cứng vòng vắt để bảo vệ lụa)} \\
+        \hline
+    \end{tabular}
+    }
+\end{table}
+
+% ----------------------------------------------------
+\section{Cài đặt và Mô phỏng}
+\subsection{Môi trường và thư viện phát triển}
+Python, thư viện scikit-fuzzy, giao diện web Streamlit.
+
+\subsection{Giao diện người dùng (GUI)}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.9\textwidth]{images/app_interface.png}
+%     \caption{Giao diện điều khiển máy giặt mờ trên Web}
+% \end{figure}
+
+\subsection{Kết quả kiểm thử qua các kịch bản (Test Cases)}
+% Chèn dữ liệu 5 kịch bản từ file result.csv vào bảng LaTeX tại đây.
+
+\subsection{Phân tích không gian điều khiển (Control Surface 3D)}
+% Chèn hình ảnh mặt cong 3D vắt tốc độ lụa và Heavy Duty.
+
+% ----------------------------------------------------
+\section{Kết luận và Hướng phát triển}
+\subsection{Kết quả đạt được}
+\subsection{Hạn chế của hệ thống}
+Nêu lại quá trình xử lý hiện tượng "Điểm mù" (Fuzzy Holes).
+
+\subsection{Hướng phát triển tương lai}
+
+% ====================================================
+% TÀI LIỆU THAM KHẢO
+% ====================================================
+\newpage
+\begin{thebibliography}{9}
+\addcontentsline{toc}{section}{Tài liệu tham khảo}
+\bibitem{tlieng1} 
+Tên tác giả, \textit{Tên sách/Tài liệu tham khảo}, Nhà xuất bản, Năm.
+\bibitem{skfuzzy} 
+Tài liệu thư viện scikit-fuzzy, URL: \url{https://pythonhosted.org/scikit-fuzzy/}
+\end{thebibliography}
+
+\end{document}
