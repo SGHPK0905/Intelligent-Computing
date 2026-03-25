@@ -15,18 +15,29 @@ st.set_page_config(
 
 st.markdown("""
 <style>
-[data-testid="metric-container"] [data-testid="stMetricValue"] { font-size: 1.4rem !important; }
+/* 1. ÉP CÂN TABS TRỞ NÊN NHỎ GỌN & HIỆN ĐẠI */
+button[data-baseweb="tab"] {
+    font-size: 13px !important;
+    padding: 6px 12px !important;
+    background-color: #f1f3f6;
+    border-radius: 6px 6px 0px 0px;
+    margin-right: 2px;
+}
+button[data-baseweb="tab"][aria-selected="true"] {
+    background-color: #e8f5e9 !important;
+    color: #1b5e20 !important;
+    border-bottom: 3px solid #2e7d32 !important;
+    font-weight: bold !important;
+}
+
+/* 2. TINH CHỈNH FONT CHỮ CỦA CÁC CON SỐ KẾT QUẢ CHO SANG TRỌNG */
+[data-testid="metric-container"] [data-testid="stMetricValue"] { 
+    font-size: 1.6rem !important; 
+    color: #0f52ba !important; /* Màu xanh nước biển công nghệ */
+}
 .stProgress > div > div > div { border-radius: 8px; }
-.advice { background:#e8f5e9; border-left:4px solid #2e7d32;
-          border-radius:0 8px 8px 0; padding:12px 16px; margin:8px 0; }
+.advice { background:#e8f5e9; border-left:4px solid #2e7d32; border-radius:0 8px 8px 0; padding:12px 16px; margin:8px 0; }
 .advice p { margin:4px 0; font-size:14px; color:#1b5e20; }
-.cycle-badge { display:inline-block; background:#e1f5ee; color:#085041;
-               border-radius:20px; padding:4px 14px;
-               font-size:13px; font-weight:600; margin-left:8px; }
-.spin-bar { display:flex; gap:5px; margin:8px 0; }
-.spin-seg { flex:1; height:8px; border-radius:4px; background:#e0e0e0; }
-.spin-on  { background:#1D9E75 !important; }
-.spin-half{ background:#9FE1CB !important; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -194,17 +205,23 @@ with col_output:
         )
 
         # Metrics row
-        m1, m2, m3, m4, m5 = st.columns(5)
-        m1.metric("⏱️ Thời gian",   f"{res['wash_time']} phút")
-        m2.metric("🌪️ Tốc độ vắt", f"{int(res['spin_speed'])} RPM")
-        m3.metric("💧 Lượng nước",  f"{res['water_amount']} %")
-        m4.metric("🫧 Xà phòng",    f"{res['detergent']} %")
-        m5.metric("🌡️ Nhiệt độ",   f"{res['water_temp']} °C")
+        st.markdown("**📊 Thông số vận hành chính:**")
+        c1, c2, c3 = st.columns(3)
+        c1.metric("⏱️ Thời gian",   f"{res['wash_time']} phút")
+        c2.metric("🌪️ Tốc độ vắt", f"{int(res['spin_speed'])} RPM")
+        c3.metric("🌡️ Nhiệt độ",   f"{res['water_temp']} °C")
+
+        st.markdown("<div style='height: 10px'></div>", unsafe_allow_html=True) # Khoảng trắng tạo độ thoáng
+        
+        c4, c5, _ = st.columns([1, 1, 1])
+        c4.metric("💧 Lượng nước",  f"{res['water_amount']} %")
+        c5.metric("🫧 Xà phòng",    f"{res['detergent']} %")
+        
         st.markdown("---")
 
         tab_main, tab_compare, tab_fuzzy, tab_3d = st.tabs([
-            "📊 Phân tích chi tiết",
-            "🔄 So sánh 2 kịch bản",
+            "📋 Phân tích chi tiết",
+            "⚖️ So sánh kịch bản",
             "📈 Đồ thị tập mờ",
             "🧊 Mặt cong 3D"
         ])
