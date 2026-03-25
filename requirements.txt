@@ -1,7 +1,8 @@
-matplotlib
-numpy
-scikit-fuzzy
-pandas
-plotly
-streamlit
-networkx
+streamlit==1.32.0
+matplotlib==3.8.3
+numpy==1.26.4
+scikit-fuzzy==0.4.2
+pandas==2.2.1
+plotly==5.19.0
+networkx==3.2.1
+altair==4.2.2
