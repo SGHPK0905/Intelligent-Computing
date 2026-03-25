@@ -11,13 +11,13 @@ import os
 dirt_amount       = ctrl.Antecedent(np.arange(0, 101, 1),    'dirt_amount')
 dirt_type         = ctrl.Antecedent(np.arange(0, 101, 1),    'dirt_type')
 cloth_sensitivity = ctrl.Antecedent(np.arange(0, 11, 1),     'cloth_sensitivity')
-cloth_amount      = ctrl.Antecedent(np.arange(0, 10.5, 0.5), 'cloth_amount')  # FIX: bước 0.5 để hỗ trợ 1.5, 3.5, 8.5 kg
+cloth_amount      = ctrl.Antecedent(np.arange(0, 10.5, 0.5), 'cloth_amount') 
 
 wash_time    = ctrl.Consequent(np.arange(0, 181, 1),  'wash_time')
 spin_speed   = ctrl.Consequent(np.arange(0, 1401, 1), 'spin_speed')
 water_amount = ctrl.Consequent(np.arange(0, 101, 1),  'water_amount')
 detergent    = ctrl.Consequent(np.arange(0, 101, 1),  'detergent')
-water_temp   = ctrl.Consequent(np.arange(0, 101, 1),  'water_temp')  # FIX: mở rộng lên 100°C theo tài liệu
+water_temp   = ctrl.Consequent(np.arange(0, 101, 1),  'water_temp')
 
 # ==========================================
 # FIX: Dùng trimf thay automf để khớp tài liệu
@@ -226,7 +226,7 @@ if __name__ == "__main__":
         plt.title(title, fontsize=14, fontweight='bold')
 
         save_path = os.path.join(output_plot_dir, filename)
-        plt.savefig(save_path, dpi=300, bbox_inches='tight')  # Lưu TRƯỚC khi show
+        plt.savefig(save_path, dpi=300, bbox_inches='tight')
         plt.close(fig)
 
     print(f"\n--- HOÀN TẤT! Hãy mở thư mục '{output_plot_dir}' để xem 9 biểu đồ đã tạo. ---")
