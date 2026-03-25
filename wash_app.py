@@ -187,7 +187,11 @@ with col_input:
         dirt_amount  = current["dirt"]
         dirt_type    = current["greasy"]
         cloth_amount = current["weight"]
-
+    else:
+        PRESETS["⚙️  Tùy chỉnh thủ công"]["dirt"] = dirt_amount
+        PRESETS["⚙️  Tùy chỉnh thủ công"]["greasy"] = dirt_type
+        PRESETS["⚙️  Tùy chỉnh thủ công"]["weight"] = cloth_amount
+        PRESETS["⚙️  Tùy chỉnh thủ công"]["fabric"] = selected_fabric
 
 # ══════════════════════════════════════
 # CỘT PHẢI — KẾT QUẢ
@@ -286,8 +290,24 @@ with col_output:
                 kb = st.selectbox("Kịch bản B", list(PRESETS.keys()), index=3, key="kb")
 
             if st.button("⚡ So sánh ngay", type="primary", use_container_width=True):
-                pa, pb = PRESETS[ka], PRESETS[kb]
-                sa, sb = FABRIC_TO_SENSITIVITY[pa["fabric"]], FABRIC_TO_SENSITIVITY[pb["fabric"]]
+                pa = PRESETS[ka].copy()
+                pb = PRESETS[kb].copy()
+
+                if ka == "⚙️  Tùy chỉnh thủ công":
+                    pa["dirt"] = dirt_amount
+                    pa["greasy"] = dirt_type
+                    pa["weight"] = cloth_amount
+                    pa["fabric"] = selected_fabric
+                    
+                if kb == "⚙️  Tùy chỉnh thủ công":
+                    pb["dirt"] = dirt_amount
+                    pb["greasy"] = dirt_type
+                    pb["weight"] = cloth_amount
+                    pb["fabric"] = selected_fabric
+
+                sa = FABRIC_TO_SENSITIVITY[pa["fabric"]]
+                sb = FABRIC_TO_SENSITIVITY[pb["fabric"]]
+                
                 ra = predict_wash(pa["dirt"], pa["greasy"], sa, pa["weight"])
                 rb = predict_wash(pb["dirt"], pb["greasy"], sb, pb["weight"])
 
@@ -335,7 +355,6 @@ with col_output:
                     cbr.metric(f"B — {pb['cycle']}", f"{vb} {unit}", delta=delta_str)
                     st.markdown("<hr style='margin:8px 0;opacity:0.2'>", unsafe_allow_html=True)
 
-                # Nhận xét
                 st.markdown("**🔍 Nhận xét của hệ thống:**")
                 remarks = []
                 if abs(ra['spin_speed'] - rb['spin_speed']) > 300:
