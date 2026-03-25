@@ -133,7 +133,9 @@ washing_sim = ctrl.ControlSystemSimulation(washing_ctrl)
 # 3. HÀM DÀNH CHO GIAO DIỆN WEB
 # ==========================================
 def predict_wash(dirt_amt, dirt_typ, cloth_sens, cloth_amt):
-    global washing_sim
+    global washing_sim, washing_ctrl 
+    
+    washing_sim = ctrl.ControlSystemSimulation(washing_ctrl)
 
     washing_sim.input['dirt_amount']       = dirt_amt
     washing_sim.input['dirt_type']         = dirt_typ

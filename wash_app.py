@@ -118,7 +118,13 @@ def generate_advice(res, fabric):
 if "preset" not in st.session_state:
     st.session_state.preset = "👕  Đồ thường ngày"
 
-
+if "custom_state" not in st.session_state:
+    st.session_state.custom_state = {
+        "dirt": 50, 
+        "greasy": 50, 
+        "weight": 5.0, 
+        "fabric": "Vải thường (Cotton, Thun)"
+    }
 # ─────────────────────────────────────────
 # HEADER
 # ─────────────────────────────────────────
@@ -183,15 +189,32 @@ with col_input:
         0.0, 10.0, value=current["weight"], step=0.5, disabled=not manual
     )
 
-    if not manual:
-        dirt_amount  = current["dirt"]
-        dirt_type    = current["greasy"]
-        cloth_amount = current["weight"]
+    manual  = (st.session_state.preset == "⚙️  Tùy chỉnh thủ công")
+    st.markdown("**Điều chỉnh chi tiết:**")
+
+    fabric_options   = list(FABRIC_TO_SENSITIVITY.keys())
+
+    if manual:
+        selected_fabric = st.selectbox("Loại vải", options=fabric_options, index=fabric_options.index(st.session_state.custom_state["fabric"]))
+        st.session_state.custom_state["fabric"] = selected_fabric # Cập nhật ngay
+        
+        dirt_amount = st.slider("Độ bẩn", 0, 100, value=st.session_state.custom_state["dirt"], format="%d%%")
+        st.session_state.custom_state["dirt"] = dirt_amount
+        
+        dirt_type = st.slider("Mức dầu mỡ", 0, 100, value=st.session_state.custom_state["greasy"], format="%d%%")
+        st.session_state.custom_state["greasy"] = dirt_type
+        
+        cloth_amount = st.slider("Khối lượng quần áo (kg)", 0.0, 10.0, value=st.session_state.custom_state["weight"], step=0.5)
+        st.session_state.custom_state["weight"] = cloth_amount
+        
+        cloth_sensitivity = FABRIC_TO_SENSITIVITY[selected_fabric]
     else:
-        PRESETS["⚙️  Tùy chỉnh thủ công"]["dirt"] = dirt_amount
-        PRESETS["⚙️  Tùy chỉnh thủ công"]["greasy"] = dirt_type
-        PRESETS["⚙️  Tùy chỉnh thủ công"]["weight"] = cloth_amount
-        PRESETS["⚙️  Tùy chỉnh thủ công"]["fabric"] = selected_fabric
+        current = PRESETS[st.session_state.preset]
+        selected_fabric = st.selectbox("Loại vải", options=fabric_options, index=fabric_options.index(current["fabric"]), disabled=True)
+        dirt_amount = st.slider("Độ bẩn", 0, 100, value=current["dirt"], format="%d%%", disabled=True)
+        dirt_type = st.slider("Mức dầu mỡ", 0, 100, value=current["greasy"], format="%d%%", disabled=True)
+        cloth_amount = st.slider("Khối lượng quần áo (kg)", 0.0, 10.0, value=current["weight"], step=0.5, disabled=True)
+        cloth_sensitivity = FABRIC_TO_SENSITIVITY[current["fabric"]]
 
 # ══════════════════════════════════════
 # CỘT PHẢI — KẾT QUẢ
