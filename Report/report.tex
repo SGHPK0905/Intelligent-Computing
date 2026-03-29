@@ -14,6 +14,9 @@
 \usepackage{subcaption}
 \usepackage{float}
 \usepackage{tikz}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+\usepackage{multirow}
 \usetikzlibrary{calc}
 
 \geometry{
@@ -69,22 +72,40 @@
 % MỤC LỤC & DANH MỤC
 % ====================================================
 \newpage
-\pagenumbering{roman}
-
-\section*{Lời cảm ơn}
+\phantomsection
+\section*{LỜI CẢM ƠN}
 \addcontentsline{toc}{section}{Lời cảm ơn}
-Nhóm sinh viên xin gửi lời cảm ơn chân thành đến giảng viên hướng dẫn...
+Nhóm chúng em xin gửi lời cảm ơn chân thành và sâu sắc nhất đến Thầy \textbf{Huỳnh Minh Trí} — giảng viên phụ trách môn \textit{Tính toán thông minh}. 
+
+Trong suốt thời gian thực hiện đồ án, Thầy đã luôn tận tâm hướng dẫn, định hướng nghiên cứu và đưa ra những góp ý chuyên môn vô cùng quý giá. Những chỉ dẫn của Thầy không chỉ giúp nhóm tháo gỡ các nút thắt về giải thuật mờ (\textit{Fuzzy Logic}) mà còn giúp chúng em rèn luyện tư duy lập trình và phương pháp trình bày báo cáo khoa học chuẩn mực.
+
+Mặc dù đã nỗ lực hết sức để hoàn thiện đồ án với đề tài \textit{"Thiết kế bộ điều khiển logic mờ cho máy giặt thông minh"}, nhưng do giới hạn về mặt thời gian cũng như kinh nghiệm thực tiễn, báo cáo chắc chắn vẫn còn tồn tại những thiếu sót nhất định. Nhóm kính mong nhận được sự thông cảm, cùng những lời nhận xét, đánh giá phản biện từ Thầy để đồ án được hoàn thiện hơn, đồng thời mở ra các hướng tối ưu hóa thuật toán trong tương lai.
+
+Một lần nữa, chúng em xin kính chúc Thầy dồi dào sức khỏe, thành công trong sự nghiệp giảng dạy và nghiên cứu khoa học. Chúng em xin chân thành cảm ơn!
+
+\vspace{1cm}
+\begin{flushright}
+\textit{TP. Hồ Chí Minh, tháng 03 năm 2026} \\
+\textbf{Nhóm 17 thực hiện} \\
+\vspace{0.2cm}
+Nguyễn Trương Cao Sơn \\
+Phan Đồng Minh Quân \\
+Võ Minh Tiến
+\end{flushright}
+\newpage
 
 \newpage
 \tableofcontents
 
 \newpage
-\listoffigures
+\phantomsection
 \addcontentsline{toc}{section}{Danh mục hình ảnh}
+\listoffigures
 
 \newpage
-\listoftables
+\phantomsection
 \addcontentsline{toc}{section}{Danh mục bảng biểu}
+\listoftables
 
 % ====================================================
 % NỘI DUNG CHÍNH (SƯỜN BÁO CÁO)
@@ -92,119 +113,432 @@ Nhóm sinh viên xin gửi lời cảm ơn chân thành đến giảng viên hư
 \newpage
 \pagenumbering{arabic}
 
+% ===================================================================
+% CHƯƠNG 1: GIỚI THIỆU
+% ===================================================================
 \section{Giới thiệu}
-\subsection{Đặt vấn đề}
-Trình bày những hạn chế của máy giặt sử dụng logic rõ (rách đồ lụa, lãng phí nước...).
 
-\subsection{Mục tiêu đề tài}
-Xây dựng hệ thống suy diễn mờ giải quyết bài toán trên.
+\subsection{Đặt vấn đề}
+Sự phát triển của Internet vạn vật (\textit{IoT}) và hệ sinh thái nhà thông minh (\textit{Smart Home}) đặt ra yêu cầu nâng cao mức độ tự động hóa cho các thiết bị gia dụng. Đối với máy giặt, mặc dù công nghệ cơ khí và vật liệu đã có những cải tiến đáng kể, phần lớn hệ thống điều khiển hiện hành vẫn vận hành dựa trên nền tảng logic kinh điển (\textit{Crisp/Boolean Logic}) với các giới hạn lập trình cố định. 
+
+Đặc trưng của logic kinh điển là tính phân định nhị phân tuyệt đối ($\{0, 1\}$). Việc áp dụng các câu lệnh rẽ nhánh dựa trên ngưỡng định sẵn (\textit{hard-thresholds}) tạo ra các hàm bước nhảy (\textit{step functions}) trong không gian điều khiển. Phương pháp này làm mất đi khả năng đáp ứng động (\textit{dynamic response}) đối với dữ liệu đầu vào mang tính liên tục và đa dạng trong thực tiễn. Sự thiếu linh hoạt về mặt thuật toán này dẫn đến ba hạn chế cốt lõi:
+
+\begin{itemize}
+    \item \textbf{Lãng phí tài nguyên:} Việc phân bổ định mức nước và năng lượng theo các chu trình đóng gói sẵn gây hao tổn dư thừa đối với các tải trọng nhỏ hoặc ít bẩn, không đáp ứng tiêu chuẩn phát triển bền vững.
+    \item \textbf{Suy giảm tuổi thọ sợi vải:} Việc áp đặt một tốc độ vắt đồng nhất, không tính đến đặc tính vật liệu, dễ gây biến dạng và hư hỏng cấu trúc đối với các loại vải nhạy cảm do vắng mặt cơ chế điều chỉnh lực ly tâm tự động.
+    \item \textbf{Hao mòn cơ khí:} Mối tương quan giữa khối lượng khô, độ thấm hút và lực cản động cơ là một bài toán phi tuyến. Việc không định lượng chính xác tải trọng thực tế dẫn đến tình trạng cấp nước không tối ưu, gây ma sát khô hoặc quá tải trục quay.
+\end{itemize}
+
+Để giải quyết các hạn chế trên, việc ứng dụng hệ suy diễn Logic mờ (\textit{Fuzzy Logic}) được đề xuất nhằm thay thế hệ thống điều khiển nhị phân. Logic mờ cho phép mô hình hóa tư duy định tính, lượng hóa đa biến số đầu vào để kích hoạt các tập luật linh hoạt, từ đó xuất ra tổ hợp thông số điều khiển tối ưu.
+
+\subsection{Câu hỏi nghiên cứu (\textit{Research Questions})}
+Để định hướng cho quá trình giải quyết bài toán, đồ án tập trung trả lời ba câu hỏi nghiên cứu cốt lõi sau:
+\begin{itemize}
+    \item \textbf{RQ1:} Làm thế nào để lượng hóa và mờ hóa các tín hiệu vật lý liên tục (khối lượng khô, độ đục của nước, lực cản động cơ) thành các biến ngôn ngữ có khả năng tính toán?
+    \item \textbf{RQ2:} Cấu trúc ma trận luật IF-THEN nào là tối ưu nhất để cân bằng giữa ba mục tiêu xung đột: làm sạch tối đa, tiết kiệm tài nguyên và bảo vệ cấu trúc vật liệu?
+    \item \textbf{RQ3:} Hệ suy diễn Mamdani và phương pháp giải mờ Trọng tâm phản ứng như thế nào (thể hiện qua không gian mặt cong 3D) khi đối mặt với các trạng thái nhiễu động cận biên so với logic Boolean truyền thống?
+\end{itemize}
+
+\subsection{Các giải pháp tương đương (\textit{Related Works})}
+Trong lĩnh vực tự động hóa thiết bị gia dụng, hiện có hai nhóm giải pháp lý thuyết đang được áp dụng, tuy nhiên vẫn tồn tại nhiều hạn chế khi giải quyết bài toán phi tuyến:
+\begin{itemize}
+    \item \textbf{Bộ điều khiển PID (\textit{Proportional-Integral-Derivative}):} Là giải pháp kinh điển, cực kỳ chính xác trong các hệ thống tuyến tính. Tuy nhiên, bài toán máy giặt có tính phi tuyến rất cao, các thông số nhiễu động thay đổi liên tục khiến bộ PID khó hội tụ và yêu cầu chi phí hiệu chỉnh (\textit{tuning}) rất phức tạp.
+    \item \textbf{Điều khiển theo ngưỡng cứng (\textit{Hard-threshold / Boolean Logic}):} Đang được sử dụng trên phần lớn máy giặt phổ thông. Phương pháp này phân loại rập khuôn (ví dụ: nước đục trên $50\%$ thì giặt 60 phút, dưới $50\%$ giặt 30 phút), gây ra hiện tượng giật cục và sai số lớn tại các điểm cận biên.
+\end{itemize}
+So với hai giải pháp trên, Logic mờ mang lại sự chuyển tiếp mượt mà, không yêu cầu một mô hình toán học vi phân chính xác tuyệt đối mà vẫn xử lý hoàn hảo sự nhập nhằng của dữ liệu thực tế.
+
+\subsection{Ý nghĩa thực tiễn}
+Khác với các nghiên cứu lý thuyết thuần túy, kết quả mô phỏng của đồ án mang lại hai giá trị ứng dụng thực tiễn rõ rệt:
+\begin{itemize}
+    \item \textbf{Tối ưu hóa sinh thái (\textit{Eco-friendly}):} Việc cấp phát chính xác định mức nước, xà phòng và điện năng gia nhiệt tỷ lệ thuận với tải trọng thực tế giúp giảm thiểu hóa chất tồn dư xả thải ra môi trường, hướng tới tiêu chuẩn phát triển bền vững.
+    \item \textbf{Nâng cao tuổi thọ vật liệu (\textit{Fabric Care}):} Cơ chế tự động giới hạn lực ly tâm thông qua các luật ghi đè an toàn (\textit{Safety Overrides}) giải quyết triệt để bài toán co rút, đứt gãy sợi vải trên các trang phục nhạy cảm, mang lại giá trị kinh tế trực tiếp cho người sử dụng.
+\end{itemize}
 
 \subsection{Cấu trúc báo cáo}
+Báo cáo được tổ chức thành 5 chương, bao gồm: Chương 1 trình bày bối cảnh và mục tiêu nghiên cứu; Chương 2 cung cấp nền tảng học thuật về Logic mờ và hệ suy diễn Mamdani; Chương 3 tập trung vào thiết kế mô hình toán học và cơ sở luật; Chương 4 phân tích kết quả mô phỏng; và Chương 5 tổng kết các đóng góp của đề tài.
 
-% ----------------------------------------------------
+% ===================================================================
+% CHƯƠNG 2: CƠ SỞ LÝ THUYẾT
+% ===================================================================
 \section{Cơ sở lý thuyết}
-\subsection{Tổng quan về Logic Mờ (Fuzzy Logic)}
-\subsection{Biến ngôn ngữ và Hàm liên thuộc}
-\subsection{Hệ suy diễn Mamdani}
-\subsection{Giải mờ (Defuzzification) bằng phương pháp Trọng tâm (COA)}
 
+\subsection{Tổng quan về Logic Mờ (\textit{Fuzzy Logic})}
+\subsubsection{Lịch sử hình thành và khái niệm cốt lõi}
+Lý thuyết Tập mờ (\textit{Fuzzy Sets}) được Giáo sư L. A. Zadeh tại Đại học California đề xuất lần đầu tiên vào năm 1965 \cite{zadeh1965}. Đến năm 1974, E. H. Mamdani đã ứng dụng thành công lý thuyết này vào bài toán điều khiển động cơ hơi nước, thiết lập nền tảng cho điều khiển mờ trong tự động hóa. Logic mờ cung cấp phương pháp tiếp cận tính toán mô phỏng quá trình suy luận định tính của con người, xử lý bài toán thông qua các tập hợp khái niệm và mệnh đề ngôn ngữ thay vì phụ thuộc hoàn toàn vào các mô hình vi phân phức tạp.
+
+\subsubsection{Phân biệt Logic kinh điển và Logic mờ}
+Sự khác biệt nền tảng giữa hai hệ logic nằm ở đặc tính của hàm liên thuộc:
+\begin{itemize}
+    \item \textbf{Logic kinh điển (\textit{Crisp Logic}):} Biểu diễn hàm liên thuộc dưới dạng nhị phân $\mu_A(x) \in \{0, 1\}$. Một phần tử chỉ có thể thuộc hoặc không thuộc hoàn toàn về một tập hợp. Trong điều khiển tự động, đặc tính này sinh ra các hàm bước nhảy đứt gãy, gây ra hiện tượng mất ổn định tại các điểm chuyển trạng thái.
+    \item \textbf{Logic mờ (\textit{Fuzzy Logic}):} Mở rộng dải giá trị chân lý trên đoạn $[0, 1]$. Hàm liên thuộc $\mu_A(x) \in [0, 1]$ cho phép một phần tử đồng thời thuộc về nhiều tập hợp với các mức độ phụ thuộc khác nhau. Sự phân bố liên tục này cung cấp không gian tính toán mềm dẻo, cho phép hệ thống nội suy các trạng thái giao thoa một cách tuyến tính.
+\end{itemize}
+
+\subsection{Biến ngôn ngữ và Hàm liên thuộc}
+\subsubsection{Khái niệm Biến ngôn ngữ}
+Trong logic mờ, biến ngôn ngữ (\textit{Linguistic Variables}) là các biến nhận giá trị dưới dạng từ vựng của ngôn ngữ tự nhiên. Cấu trúc biến ngôn ngữ bao gồm ba yếu tố cốt lõi: Tên biến, Không gian nền (\textit{Universe of Discourse} - ký hiệu là $X$), và Tập các giá trị ngôn ngữ.
+
+\subsubsection{Mô hình toán học của Hàm liên thuộc tam giác (\textit{Trimf})}
+Hệ thống ưu tiên sử dụng Hàm liên thuộc dạng tam giác nhằm tối ưu hóa chi phí tính toán nhưng vẫn đảm bảo độ nhạy của tín hiệu điều khiển. Về mặt toán học, hàm liên thuộc tam giác cho một tập mờ $A$ được xác định bởi bộ ba tham số $(a, b, c)$, tương ứng với tọa độ chân trái, đỉnh và chân phải trên trục hoành.
+
+Phương trình tổng quát của hàm phân nhánh tuyến tính này được biểu diễn như sau:
 \begin{equation}
-z^* = \frac{\int \mu(z) \cdot z \, dz}{\int \mu(z) \, dz}
+\mu_A(x; a, b, c) = 
+\begin{cases} 
+0 & \text{nếu } x \le a \\
+\frac{x - a}{b - a} & \text{nếu } a < x \le b \\
+\frac{c - x}{c - b} & \text{nếu } b < x < c \\
+0 & \text{nếu } x \ge c 
+\end{cases}
 \end{equation}
 
-% ----------------------------------------------------
+Ví dụ, xét biến \textit{Độ bẩn}, tập mờ \textit{Bẩn vừa} được định nghĩa bởi tọa độ $(30, 50, 70)$. Giả sử giá trị đầu vào là $x = 45\%$. Hệ thống sẽ nội suy mức độ phụ thuộc thông qua sườn dương của đồ thị:
+\begin{equation*}
+\mu_{\textit{Bẩn vừa}}(45) = \frac{45 - 30}{50 - 30} = 0.75
+\end{equation*}
+Kết quả $\mu = 0.75$ minh chứng cho năng lực lượng hóa trạng thái: một mẻ quần áo với độ bẩn $45\%$ được hệ thống hiểu là mang $75\%$ đặc tính của mẻ đồ \textit{Bẩn vừa}.
+
+\subsection{Hệ suy diễn Mamdani}
+Hệ thống sử dụng cơ chế suy diễn Mamdani do tính trực quan và khả năng biểu diễn tập mờ ở cả đầu vào và đầu ra. Chu trình tính toán bao gồm 4 bước độc lập:
+\begin{enumerate}
+    \item \textbf{Mờ hóa (\textit{Fuzzification}):} Ánh xạ các giá trị thực thu thập từ cảm biến qua các hàm liên thuộc để xác định mức độ phụ thuộc $\mu(x) \in [0, 1]$.
+    \item \textbf{Đánh giá luật (\textit{Rule Evaluation}):} Áp dụng toán tử T-norm (hàm $\min$) đối với các mệnh đề điều kiện liên kết bằng phép chập logic AND, nhằm xác định cường độ kích hoạt $\alpha$ cho từng luật.
+    \item \textbf{Suy diễn kết quả (\textit{Implication}):} Áp dụng cường độ $\alpha$ lên đồ thị đầu ra thông qua phương pháp cắt ngọn (\textit{Clipping}), tạo ra các tập mờ kết luận độc lập.
+    \item \textbf{Tổng hợp (\textit{Aggregation}):} Sử dụng toán tử S-norm (hàm $\max$) để tích hợp các tập mờ kết luận riêng lẻ thành một tập mờ tổng hợp duy nhất.
+\end{enumerate}
+
+\subsection{Giải mờ bằng phương pháp Trọng tâm (\textit{Center of Area - COA})}
+Đầu ra của hệ suy diễn Mamdani là một đa giác mờ tổng hợp. Để các cơ cấu chấp hành vật lý có thể thực thi, hệ thống sử dụng thuật toán Giải mờ Trọng tâm nhằm chuyển hóa diện tích đa giác thành một giá trị thực (\textit{Crisp output}) duy nhất.
+
+Giá trị giải mờ $z^*$ trên không gian liên tục được xác định bởi công thức tích phân:
+\begin{equation}
+z^* = \frac{\int \mu_C(z) \cdot z \, dz}{\int \mu_C(z) \, dz}
+\end{equation}
+
+Trong thực tế lập trình vi điều khiển, không gian nền được rời rạc hóa thành $n$ điểm lấy mẫu. Thuật toán được chuyển sang dạng xấp xỉ rời rạc:
+\begin{equation}
+z^* = \frac{\sum_{i=1}^{n} \mu_C(z_i) \cdot z_i}{\sum_{i=1}^{n} \mu_C(z_i)}
+\end{equation}
+Thông qua thuật toán này, hệ thống đảm bảo nội suy ra thông số vận hành đạt điểm cân bằng toán học tối ưu nhất cho từng mẻ giặt.
+
+% ===================================================================
+% CHƯƠNG 3: THIẾT KẾ HỆ THỐNG ĐIỀU KHIỂN MÁY GIẶT
+% ===================================================================
 \section{Thiết kế hệ thống điều khiển máy giặt}
 
-\subsection{Sơ đồ khối hệ thống}
-Hệ thống điều khiển máy giặt thông minh LG AI DD sử dụng logic mờ được thiết kế dựa trên 4 biến đầu vào (Inputs) thu thập từ các cảm biến thực tế và 5 biến đầu ra (Outputs) để ra lệnh cho phần cứng máy giặt.
+\subsection{Sơ đồ khối hệ thống điều khiển}
+Hệ thống điều khiển máy giặt sử dụng logic mờ được thiết kế dựa trên 4 biến đầu vào thu thập từ cảm biến phần cứng và 5 biến đầu ra điều khiển cơ cấu chấp hành. Về mặt kiến trúc tổng thể, đây là một hệ thống đa vào - đa ra (\textit{MIMO}) tuân theo luồng dữ liệu vòng kín. Sơ đồ khối được cấu thành từ 4 phân hệ chức năng tương hỗ:
 
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.85\textwidth]{images/so_do_khoi.png}
-%     \caption{Sơ đồ khối kiến trúc hệ thống điều khiển logic mờ}
-%     \label{fig:sodokhoi}
-% \end{figure}
-
-\subsection{Định nghĩa biến đầu vào (Inputs)}
-Các biến đầu vào được mô hình hóa bằng hàm liên thuộc dạng tam giác (Trimf) để tối ưu hóa quá trình tính toán:
 \begin{itemize}
-    \item \textbf{Khối lượng quần áo (Cloth Amount):} Thang đo từ $0 - 10$ kg (Dựa trên tải trọng thực tế lớn nhất của lồng giặt). Được chia thành 3 tập mờ: Ít ($0 - 4$ kg), Vừa ($2 - 8$ kg), Nhiều ($6 - 10$ kg).
-    \item \textbf{Độ bẩn (Dirt Amount):} Thang đo từ $0 - 100\%$ (Quy đổi từ cảm biến độ đục quang học). Chia thành 3 tập mờ: Ít bẩn ($0 - 45\%$), Bẩn vừa ($25 - 75\%$), Rất bẩn ($55 - 100\%$).
-    \item \textbf{Mức dầu mỡ / Loại bẩn (Dirt Type):} Thang đo từ $0 - 100\%$. Chia thành 3 tập mờ: Không dầu mỡ ($0 - 45\%$), Hỗn hợp ($25 - 75\%$), Nhiều dầu mỡ ($55 - 100\%$).
-    \item \textbf{Độ nhạy cảm vải (Cloth Sensitivity):} Thang đo từ $0 - 10$ điểm (Công nghệ AI DD phân tích độ cứng/mềm của sợi vải). Chia thành 3 tập mờ: Ít nhạy cảm/Vải dày ($0 - 4$), Bình thường ($2 - 8$), Rất nhạy cảm/Vải mỏng ($6 - 10$).
+    \item \textbf{Phân hệ thu thập tín hiệu và Mờ hóa:} Tiếp nhận 4 tín hiệu số thực từ các cảm biến vật lý. Khối Mờ hóa tiến hành ánh xạ các điện áp này qua đồ thị liên thuộc, trả về ma trận mức độ phụ thuộc mờ $\mu \in [0, 1]$.
+    \item \textbf{Phân hệ Cơ sở tri thức:} Lưu trữ cấu trúc hàm liên thuộc và tập hợp 19 quy luật điều khiển dạng mệnh đề IF-THEN. Phân hệ này bao hàm toàn bộ kịch bản vận hành cơ sở và các ràng buộc ghi đè an toàn.
+    \item \textbf{Phân hệ Bộ suy diễn mờ:} Đơn vị xử lý trung tâm làm nhiệm vụ đối chiếu ma trận đầu vào với Tập luật. Module này tính toán cường độ kích hoạt để cắt ngọn không gian đầu ra, sau đó tích lũy các khối diện tích thành một Đa giác mờ tổng hợp.
+    \item \textbf{Phân hệ Giải mờ và Cơ cấu chấp hành:} Chuyển đổi ngược từ đa giác mờ về tín hiệu điều khiển vật lý thông qua thuật toán Trọng tâm diện tích. Từ đây, hệ thống phát lệnh PWM hoặc điện áp trực tiếp để can thiệp vào động cơ và van bơm.
 \end{itemize}
 
-\subsection{Định nghĩa biến đầu ra (Outputs)}
-Các thông số đầu ra quyết định chu trình giặt bao gồm:
+\subsection{Định nghĩa không gian và tham số biến đầu vào}
+Hệ thống sử dụng $100\%$ Hàm liên thuộc dạng tam giác. Không gian nền $X$ và tọa độ đỉnh $(a, b, c)$ của các tập mờ được quy định như sau:
+
+\subsubsection{Khối lượng quần áo}
+Đại diện cho tải trọng thực tế của lồng giặt, nội suy từ cảm biến trọng lượng. Không gian nền $X \in [0, 10]$ kg.
 \begin{itemize}
-    \item \textbf{Thời gian giặt (Wash Time):} Thang đo $0 - 180$ phút. Chia thành 5 tập mờ: Rất ngắn, Ngắn, Vừa, Dài, Rất dài.
-    \item \textbf{Tốc độ vắt (Spin Speed):} Thang đo $0 - 1400$ vòng/phút (RPM). Chia thành 5 tập mờ: Rất thấp, Thấp, Vừa, Cao, Rất cao.
-    \item \textbf{Lượng nước (Water Amount):} Thang đo $0 - 100\%$. Chia thành 3 tập mờ: Ít, Bình thường, Nhiều.
-    \item \textbf{Lượng xà phòng (Detergent):} Thang đo $0 - 100\%$. Chia thành 3 tập mờ: Ít, Bình thường, Nhiều.
-    \item \textbf{Nhiệt độ nước (Water Temp):} Thang đo $0 - 100^\circ$C. Chia thành 3 tập mờ: Thấp ($20-30^\circ$C), Vừa ($40^\circ$C), Cao ($60-95^\circ$C).
+    \item \textbf{Tập \textit{Ít}:} Đại diện cho nhóm đồ tải nhẹ, tọa độ $(0, 0, 4)$.
+    \item \textbf{Tập \textit{Vừa}:} Đại diện cho tải trung bình, tọa độ $(2, 5, 8)$.
+    \item \textbf{Tập \textit{Nhiều}:} Đại diện cho tải nặng, tọa độ $(6, 10, 10)$.
+\end{itemize}
+Việc thiết lập khoảng giao thoa trên đoạn $[2, 4]$ kg và $[6, 8]$ kg nhằm triệt tiêu hiện tượng nhảy bậc. Khi khối lượng thay đổi vi mô, hệ thống áp dụng cơ chế nội suy chồng chập, tối ưu hóa định mức cấp nước.
+
+ \begin{figure}[H]
+     \centering
+     \includegraphics[width=0.7\textwidth]{images/input_cloth_amount.png}
+     \caption{Đồ thị hàm liên thuộc của biến Khối lượng}
+     \label{fig:cloth_amount}
+ \end{figure}
+
+\subsubsection{Độ bẩn}
+Nồng độ chất bẩn hòa tan, quy đổi từ sự suy giảm cường độ ánh sáng của cảm biến quang học. Không gian nền $X \in [0, 100]\%$.
+\begin{itemize}
+    \item \textbf{Tập \textit{Ít bẩn}:} Áp dụng cho bụi hoặc mồ hôi, tọa độ $(0, 0, 45)$.
+    \item \textbf{Tập \textit{Bẩn vừa}:} Áp dụng cho trang phục hằng ngày, tọa độ $(25, 50, 75)$. 
+    \item \textbf{Tập \textit{Rất bẩn}:} Áp dụng cho bùn đất cường độ cao, tọa độ $(55, 100, 100)$.
 \end{itemize}
 
-\subsection{Tập luật mờ (Fuzzy Rule Base)}
-Hệ thống sử dụng cơ chế suy diễn Mamdani với tổng cộng \textbf{19 quy luật mờ} (IF-THEN Rules). Tập luật này bao gồm các luật kết hợp toàn diện và các "Luật ghi đè an toàn" (Safety Override Rules) để bảo vệ sợi vải trong các trường hợp cực đoan. Một số luật tiêu biểu được trích xuất trong Bảng \ref{tab:fuzzy_rules}.
+ \begin{figure}[H]
+     \centering
+     \includegraphics[width=0.7\textwidth]{images/input_dirt_amount.png}
+     \caption{Đồ thị hàm liên thuộc của biến Độ bẩn}
+     \label{fig:dirt_amount}
+ \end{figure}
+
+\subsubsection{Mức dầu mỡ}
+Tỷ lệ chất bẩn có cấu trúc phân tử bền vững. Không gian nền $X \in [0, 100]\%$.
+\begin{itemize}
+    \item \textbf{Tập \textit{Không dầu mỡ}:} Tọa độ $(0, 0, 45)$.
+    \item \textbf{Tập \textit{Hỗn hợp}:} Tọa độ $(25, 50, 75)$.
+    \item \textbf{Tập \textit{Nhiều dầu mỡ}:} Tọa độ $(55, 100, 100)$.
+\end{itemize}
+Ngưỡng kích hoạt $55\%$ của tập \textit{Nhiều dầu mỡ} đóng vai trò là điểm bùng phát để hệ thống phát lệnh đóng rơ-le thanh gia nhiệt.
+
+ \begin{figure}[H]
+     \centering
+     \includegraphics[width=0.7\textwidth]{images/input_dirt_type.png}
+     \caption{Đồ thị hàm liên thuộc của biến Mức dầu mỡ}
+     \label{fig:dirt_type}
+ \end{figure}
+
+\subsubsection{Độ nhạy cảm vải}
+Biến phân tích độ kháng lực từ động cơ để nhận diện cấu trúc vật liệu. Không gian nền $X \in [0, 10]$ điểm.
+\begin{itemize}
+    \item \textbf{Tập \textit{Ít nhạy cảm}:} Áp dụng cho vật liệu có độ bền cơ học cao như Kaki, tọa độ $(0, 0, 4)$.
+    \item \textbf{Tập \textit{Bình thường}:} Tiêu chuẩn cho vải Cotton, tọa độ $(2, 5, 8)$.
+    \item \textbf{Tập \textit{Rất nhạy cảm}:} Áp dụng cho vật liệu dễ đứt gãy như lụa, tọa độ $(6, 10, 10)$.
+\end{itemize}
+
+ \begin{figure}[H]
+     \centering
+     \includegraphics[width=0.7\textwidth]{images/input_cloth_sensitivity.png}
+     \caption{Đồ thị hàm liên thuộc của biến Độ nhạy cảm vải}
+     \label{fig:cloth_sensitivity}
+ \end{figure}
+
+\subsection{Định nghĩa không gian và tham số biến đầu ra}
+\subsubsection{Thời gian giặt}
+Không gian nền $Y \in [0, 180]$ phút. 
+\begin{itemize}
+    \item \textbf{Tập \textit{Rất ngắn}:} Tương đương chu trình giặt nhanh, tọa độ $(0, 0, 45)$.
+    \item \textbf{Tập \textit{Ngắn}:} Tọa độ $(0, 45, 90)$.
+    \item \textbf{Tập \textit{Vừa}:} Tiêu chuẩn cho đồ hỗn hợp, tọa độ $(45, 90, 135)$.
+    \item \textbf{Tập \textit{Dài}:} Tọa độ $(90, 135, 180)$.
+    \item \textbf{Tập \textit{Rất dài}:} Tương đương chu trình xử lý tải nặng, tọa độ $(135, 180, 180)$.
+\end{itemize}
+MCU nạp giá trị số thực nội suy được vào bộ định thời gian, thiết lập tổng thời lượng duy trì chu kỳ nhào trộn trước pha xả.
+
+\subsubsection{Tốc độ vắt}
+Không gian nền $Y \in [0, 1400]$ vòng/phút.
+\begin{itemize}
+    \item \textbf{Tập \textit{Rất thấp}:} Chuyên dụng bảo vệ đồ mỏng, tọa độ $(0, 0, 350)$.
+    \item \textbf{Tập \textit{Thấp}:} Tọa độ $(0, 350, 700)$.
+    \item \textbf{Tập \textit{Vừa}:} Tọa độ $(350, 700, 1050)$.
+    \item \textbf{Tập \textit{Cao}:} Tọa độ $(700, 1050, 1400)$.
+    \item \textbf{Tập \textit{Rất cao}:} Tối đa hóa tách nước, tọa độ $(1050, 1400, 1400)$.
+\end{itemize}
+
+\subsubsection{Lượng nước và Lượng xà phòng}
+Không gian nền chung $Y \in [0, 100]\%$.
+\begin{itemize}
+    \item \textbf{Tập \textit{Ít}:} Tọa độ $(0, 0, 50)$.
+    \item \textbf{Tập \textit{Bình thường}:} Tọa độ $(0, 50, 100)$.
+    \item \textbf{Tập \textit{Nhiều}:} Tọa độ $(50, 100, 100)$.
+\end{itemize}
+
+\subsubsection{Nhiệt độ nước}
+Không gian nền $Y \in [0, 100]^\circ\text{C}$.
+\begin{itemize}
+    \item \textbf{Tập \textit{Thấp}:} Duy trì ở mức $20-30^\circ\text{C}$, tọa độ $(0, 0, 50)$.
+    \item \textbf{Tập \textit{Vừa}:} Gia nhiệt đạt $40^\circ\text{C}$, tọa độ $(0, 50, 100)$.
+    \item \textbf{Tập \textit{Cao}:} Đun nóng đến $60-95^\circ\text{C}$ để khử mỡ, tọa độ $(50, 100, 100)$.
+\end{itemize}
+
+\subsection{Tập luật mờ (\textit{Fuzzy Rule Base})}
+Hệ thống sử dụng kỹ thuật cắt tỉa luật (\textit{Rule Pruning}) dựa trên hệ chuyên gia nhằm tinh giản không gian 81 tổ hợp trạng thái thành 19 quy luật cốt lõi. Cấu trúc luật được phân tầng thành 3 lớp chuyên biệt:
+
+\begin{itemize}
+    \item \textbf{Lớp 1 - Luật kịch bản cơ sở:} Đánh giá đồng thời 4 tham số đầu vào để định hình chu trình giặt tổng thể. 
+    \item \textbf{Lớp 2 - Luật bổ trợ tài nguyên:} Can thiệp độc lập ở mức vi mô (tinh chỉnh định mức nước và xà phòng) nhằm tối ưu hóa năng lượng mà không làm thay đổi các biến số khác.
+    \item \textbf{Lớp 3 - Luật ghi đè an toàn:} Sở hữu đặc quyền ưu tiên cao nhất, cho phép vượt quyền các điều kiện vĩ mô. Điển hình là cơ chế khóa cứng ngưỡng vòng quay ly tâm khi phát hiện vật liệu dễ đứt gãy.
+\end{itemize}
 
 \begin{table}[H]
     \centering
-    \caption{Trích xuất một số luật mờ cốt lõi của hệ thống}
+    \caption{Trích xuất các luật mờ cốt lõi của hệ thống}
     \label{tab:fuzzy_rules}
     \resizebox{\textwidth}{!}{
-    \renewcommand{\arraystretch}{1.3} % Tăng khoảng cách các dòng trong bảng
-    \begin{tabular}{|c|p{7cm}|p{7.5cm}|}
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{|c|p{3cm}|p{6.5cm}|p{6cm}|}
         \hline
-        \textbf{Luật} & \textbf{Mệnh đề điều kiện (IF)} & \textbf{Mệnh đề kết luận (THEN)} \\
+        \textbf{Phân lớp} & \textbf{Luật tiêu biểu} & \textbf{Mệnh đề Điều kiện (IF)} & \textbf{Mệnh đề Kết luận (THEN)} \\
         \hline
-        \textbf{Rule 1} & Độ bẩn Nhiều \textbf{AND} Dầu mỡ Nhiều \textbf{AND} Vải Ít nhạy cảm \textbf{AND} Khối lượng Nhiều & Thời gian Rất dài, Vắt Rất cao, Nước Nhiều, Xà phòng Nhiều, Nhiệt Cao \\
+        \multirow{2}{*}{Lớp 1} & Rule 1: Tải nặng & Khối lượng (\textit{Nhiều}) AND Độ bẩn (\textit{Nhiều}) AND Dầu mỡ (\textit{Nhiều}) AND Vải (\textit{Ít nhạy cảm}) & Thời gian (\textit{Rất dài}), Vắt (\textit{Rất cao}), Nước (\textit{Nhiều}), Xà phòng (\textit{Nhiều}), Nhiệt độ (\textit{Cao}) \\ \cline{2-4}
+        & Rule 2: Bảo vệ vải & Khối lượng (\textit{Ít}) AND Độ bẩn (\textit{Ít}) AND Dầu mỡ (\textit{Ít}) AND Vải (\textit{Rất nhạy cảm}) & Thời gian (\textit{Rất ngắn}), Vắt (\textit{Rất thấp}), Nước (\textit{Ít}), Xà phòng (\textit{Ít}), Nhiệt độ (\textit{Thấp}) \\
         \hline
-        \textbf{Rule 2} & Độ bẩn Ít \textbf{AND} Không dầu mỡ \textbf{AND} Vải Rất nhạy cảm \textbf{AND} Khối lượng Ít & Thời gian Rất ngắn, Vắt Rất thấp, Nước Ít, Xà phòng Ít, Nhiệt Thấp \\
+        Lớp 2 & Rule 7/8: Tiết kiệm & Tải trọng (\textit{Ít} hoặc \textit{Nhiều}) & Tự động gia giảm cấu hình Lượng nước và Xà phòng tương ứng. \\
         \hline
-        \textbf{Rule 8} & Dầu mỡ Nhiều & Nhiệt độ Cao, Xà phòng Nhiều \newline \textit{(Ưu tiên dùng nước nóng để hòa tan dầu mỡ)} \\
-        \hline
-        \textbf{Rule 9} & Vải Rất nhạy cảm & Thời gian Ngắn, Vắt Thấp \newline \textit{(Luật an toàn: Khóa cứng vòng vắt để bảo vệ lụa)} \\
+        Lớp 3 & Rule 9: Ghi đè & Nhạy cảm vải (\textit{Rất nhạy cảm}) hoặc Dầu mỡ (\textit{Nhiều}) & Ép buộc khóa tốc độ vắt ở mức (\textit{Thấp}) hoặc kích hoạt nhiệt độ (\textit{Cao}) vô điều kiện. \\
         \hline
     \end{tabular}
     }
 \end{table}
 
-% ----------------------------------------------------
+% ===================================================================
+% CHƯƠNG 4: CÀI ĐẶT VÀ MÔ PHỎNG
+% ===================================================================
 \section{Cài đặt và Mô phỏng}
+
 \subsection{Môi trường và thư viện phát triển}
-Python, thư viện scikit-fuzzy, giao diện web Streamlit.
+Để hiện thực hóa mô hình toán học của bộ điều khiển mờ, hệ thống được lập trình trên môi trường Python 3.11. Các thư viện tính toán khoa học cốt lõi bao gồm:
+\begin{itemize}
+    \item \textbf{scikit-fuzzy (\textit{skfuzzy}):} Đảm nhiệm toàn bộ engine suy diễn Mamdani, từ việc mờ hóa, áp dụng T-norm/S-norm đến giải mờ bằng tích phân rời rạc (COA) \cite{skfuzzy}.
+    \item \textbf{NumPy \& Matplotlib:} Xử lý ma trận dữ liệu và kết xuất các đồ thị hàm liên thuộc 2D để kiểm chứng phân bố tập mờ.
+    \item \textbf{Streamlit \& Plotly:} Xây dựng kiến trúc giao diện người dùng (GUI) tương tác thời gian thực và render không gian mặt cong điều khiển 3D.
+\end{itemize}
 
-\subsection{Giao diện người dùng (GUI)}
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.9\textwidth]{images/app_interface.png}
-%     \caption{Giao diện điều khiển máy giặt mờ trên Web}
-% \end{figure}
+\subsection{Giao diện người dùng (GUI) và Trực quan hóa kết quả}
+Toàn bộ giao diện được triển khai dưới dạng ứng dụng web một trang (\textit{Single Page Application}) tại địa chỉ \url{https://washai.streamlit.app/}, không yêu cầu cài đặt phía người dùng. Mỗi thay đổi trên thanh trượt đầu vào đều kích hoạt tức thời một vòng tính toán đầy đủ của engine \textit{skfuzzy} và cập nhật đồng thời tất cả các thành phần hiển thị.
 
-\subsection{Kết quả kiểm thử qua các kịch bản (Test Cases)}
-% Chèn dữ liệu 5 kịch bản từ file result.csv vào bảng LaTeX tại đây.
+\subsubsection{Phân hệ đầu vào (Inputs Configuration)}
+Phân hệ này được bố trí tại cột trái, đóng vai trò như một bộ giả lập cảm biến (\textit{Sensor Simulator}). Người dùng có thể lựa chọn nhanh các kịch bản giặt (\textit{Presets}) hoặc can thiệp thủ công vào 4 biến đầu vào thông qua các thanh trượt (\textit{Slider}). Hệ thống hỗ trợ nhập giá trị liên tục cho Độ bẩn ($0-100\%$), Mức dầu mỡ ($0-100\%$) và Khối lượng ($0-10$ kg), mô phỏng chính xác dải tín hiệu thực tế truyền về từ các cảm biến vật lý.
 
-\subsection{Phân tích không gian điều khiển (Control Surface 3D)}
-% Chèn hình ảnh mặt cong 3D vắt tốc độ lụa và Heavy Duty.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{images/gui.png} 
+    \caption{Phân hệ giả lập thông số cảm biến đầu vào}
+    \label{fig:gui}
+\end{figure}
 
-% ----------------------------------------------------
+\subsubsection{Phân hệ đầu ra và các Tab phân tích chuyên môn}
+Ngay khi dữ liệu đầu vào thay đổi, hệ thống thực thi engine suy diễn mờ và cập nhật các lệnh điều khiển. Các thông số này được bóc tách chi tiết qua 4 Tab chức năng:
+
+\textbf{1. Tab Phân tích chi tiết (Detailed Analysis):} \\
+Cung cấp góc nhìn thực tiễn về chu trình vận hành. Tổng thời gian giặt được phân bổ thành 4 pha vận hành: Ngâm (chiếm khoảng 19\%), Giặt (chiếm khoảng 45\%), Xả (chiếm khoảng 22\%) và Vắt (chiếm khoảng 14\%), mỗi pha được hiển thị bằng thanh tiến trình riêng biệt. Cụ thể, thanh tiến trình tốc độ vắt được chia thành 5 vùng màu từ \textit{"Rất nhẹ (Lụa)"} đến \textit{"Tối đa (Jeans)"}, trong đó nhãn ngôn ngữ cập nhật động theo giá trị RPM hiện tại (ví dụ: \textit{"Trung bình — 783 RPM"}). 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/tab_phantich.png} 
+    \caption{Tab Phân tích chi tiết và khuyến nghị vận hành}
+    \label{fig:tab_phantich}
+\end{figure}
+
+\textbf{2. Tab So sánh 2 kịch bản (Scenario Comparison):} \\
+Chức năng này cho phép chọn độc lập Kịch bản A và Kịch bản B để so sánh. Hệ thống render song song 5 cặp thanh ngang: màu xanh biểu thị Kịch bản A và màu cam biểu thị Kịch bản B. Bên cạnh giá trị tuyệt đối, hệ thống tính toán delta chênh lệch kèm chiều tăng/giảm (ví dụ: $+150.0$ RPM, $-10.9^\circ$C). Khung nhận xét cuối tab tự động tổng hợp chênh lệch thành ngôn ngữ định tính, minh chứng cho tính liên tục của Logic mờ (đáp ứng RQ3).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/tab_sosanh.png} 
+    \caption{Trực quan hóa sự chênh lệch thông số giữa hai kịch bản giặt}
+    \label{fig:tab_sosanh}
+\end{figure}
+
+\textbf{3. Tab Đồ thị tập mờ (Fuzzy Membership Visualization):} \\
+Cho phép quan sát cơ chế nội suy của hệ suy diễn Mamdani. 5 đồ thị được bố cục dạng lưới $3+2$. Trên mỗi đồ thị, đường cong hàm liên thuộc \textit{Trimf} được vẽ theo màu phân biệt, vùng tô màu (\textit{shaded area}) biểu thị phần diện tích bị cắt ngọn (\textit{Clipping}) sau khi áp dụng cường độ kích hoạt $\alpha$. Đường thẳng đứng màu đen đánh dấu tọa độ Trọng tâm $z^*$ — giá trị giải mờ thực tế.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{images/tab_dothi.png} 
+    \caption{Trực quan hóa quá trình cắt ngọn và xác định trọng tâm giải mờ}
+    \label{fig:tab_dothi}
+\end{figure}
+
+\textbf{4. Tab Mặt cong 3D (3D Control Surface):} \\
+Minh chứng cho sự toàn vẹn của ma trận luật mờ. Mặt cong được tính toán bằng cách quét lưới $50 \times 50$ điểm (tổng cộng 2.500 lần tính toán), cố định biến Khối lượng và Độ bẩn theo kịch bản, đồng thời cho Độ nhạy vải (trục X) và Mức dầu mỡ (trục Y) chạy trên toàn bộ không gian nền. Điểm neo màu đỏ biểu thị tọa độ vận hành hiện tại.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{images/tab_3d.png} 
+    \caption{Không gian điều khiển 3D tương tác của tốc độ vắt}
+    \label{fig:tab_3d}
+\end{figure}
+
+\subsection{Kết quả kiểm thử qua các kịch bản (\textit{Test Cases})}
+Để đánh giá độ tin cậy, hệ thống được kiểm thử với 4 kịch bản, bao gồm một kịch bản giao thoa cận biên (\textit{Edge Case}) tại ranh giới tập mờ. Bảng \ref{tab:test_cases} trình bày đối chiếu thông số đầu ra.
+
+\begin{table}[H]
+    \centering
+    \caption{Kết quả nội suy từ bộ điều khiển mờ cho các kịch bản kiểm thử}
+    \label{tab:test_cases}
+    \resizebox{\textwidth}{!}{
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{|l|c|c|c|c|}
+        \hline
+        \textbf{Thông số} & \textbf{Đồ lụa / Nhạy cảm} & \textbf{Đồ thường ngày} & \textbf{Giao thoa (Edge Case)} & \textbf{Đồ bảo hộ (Heavy Duty)} \\
+        \hline
+        \multicolumn{5}{|c|}{\cellcolor[gray]{0.9}\textit{Biến đầu vào (Giả lập Cảm biến)}} \\
+        \hline
+        Khối lượng (kg) & $1.5$ & $5.0$ & $6.0$ & $8.5$ \\
+        Độ bẩn (\%) & $20$ & $50$ & $50$ & $95$ \\
+        Dầu mỡ (\%) & $10$ & $20$ & $50$ & $90$ \\
+        Nhạy cảm (Điểm) & $9$ & $5$ & $5$ & $1$ \\
+        \hline
+        \multicolumn{5}{|c|}{\cellcolor[gray]{0.9}\textit{Biến đầu ra (Giá trị giải mờ COA thực tế)}} \\
+        \hline
+        Thời gian (phút) & $38.1$ & $80.0$ & $105.5$ & $130.6$ \\
+        Tốc độ vắt (RPM) & $452$ & $883$ & $950$ & $1165$ \\
+        Nhiệt độ ($^\circ$C) & $21.7$ & $46.7$ & $48.0$ & $82.9$ \\
+        Lượng nước (\%) & $14.7$ & $50.0$ & $60.5$ & $85.3$ \\
+        Xà phòng (\%) & $14.7$ & $50.0$ & $60.5$ & $86.1$ \\
+        \hline
+    \end{tabular}
+    }
+\end{table}
+
+\textbf{Đánh giá đáp ứng:} Kết quả tại Bảng \ref{tab:test_cases} chứng minh ma trận 19 luật hoạt động chính xác. Kịch bản "Đồ lụa" đã kích hoạt thành công \textit{Luật ghi đè an toàn (Rule 9)} (theo định nghĩa tại Bảng 1, Chương 3), ép tốc độ vắt xuống mức thấp. Đặc biệt, tại kịch bản "Giao thoa" nằm tại điểm $6.0$ kg (ranh giới giữa tập \textit{Vừa} và \textit{Nhiều}), hệ thống không bị nhảy bậc mà xuất ra bộ thông số trung gian ($105.5$ phút, $950$ RPM), minh chứng cho năng lực nội suy liên tục (đáp ứng RQ3).
+
+\subsection{Phân tích không gian điều khiển (\textit{3D Control Surface})}
+Sức mạnh của Logic mờ không nằm ở các điểm rời rạc mà nằm ở tính liên tục của không gian nội suy. Bằng cách đóng băng 2 biến (Khối lượng và Độ bẩn) theo kịch bản và cho 2 biến còn lại (Độ nhạy vải, Mức dầu mỡ) quét qua toàn bộ không gian nền bằng lưới $50 \times 50$ điểm (tổng cộng 2.500 lần tính toán), hệ thống đã kết xuất thành công mặt cong 3D cho tín hiệu "Tốc độ vắt".
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{images/3d_spin_heavy_duty.png}
+        \caption{Kịch bản Heavy Duty (Tải nặng, cực bẩn)}
+        \label{fig:3d_heavy}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{images/3d_spin_delicates.png}
+        \caption{Kịch bản Delicates (Tải nhẹ, ít bẩn)}
+        \label{fig:3d_delicate}
+    \end{subfigure}
+    \caption{Đối chiếu mặt cong không gian điều khiển Tốc độ vắt giữa hai kịch bản}
+    \label{fig:3d_surfaces}
+\end{figure}
+
+Sự khác biệt về cao độ giữa Hình \ref{fig:3d_heavy} và Hình \ref{fig:3d_delicate} chứng minh sự can thiệp hiệu quả của cấu trúc luật phân tầng. Ở kịch bản Heavy Duty, mặt cong duy trì trần vận tốc rất cao nhưng lập tức đổ dốc (hạ RPM) khi trục hoành tiến về vùng vải nhạy cảm. Ngược lại, ở kịch bản Delicates, toàn bộ mặt cong bị ép phẳng ở mức RPM thấp để bảo vệ sợi vải, bất chấp sự biến thiên của lượng dầu mỡ. Cuối cùng, sự trơn nhẵn của cả hai mặt cong khẳng định ma trận luật đã được tối ưu hóa, triệt tiêu hoàn toàn các hố sụt (\textit{Fuzzy holes}) hay đỉnh gai đột biến, đảm bảo động cơ hoạt động ổn định và không bị sốc dòng điện.
+
+% ===================================================================
+% CHƯƠNG 5: KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN
+% ===================================================================
 \section{Kết luận và Hướng phát triển}
+
 \subsection{Kết quả đạt được}
-\subsection{Hạn chế của hệ thống}
-Nêu lại quá trình xử lý hiện tượng "Điểm mù" (Fuzzy Holes).
+Đối chiếu với các mục tiêu và câu hỏi nghiên cứu (\textit{Research Questions}) đã đặt ra tại Chương 1, đồ án đã đáp ứng trọn vẹn các yêu cầu khoa học:
+\begin{itemize}
+    \item \textbf{Đối với RQ1:} Hệ thống đã lượng hóa thành công các tín hiệu vật lý liên tục thành 9 không gian tham số mờ dựa trên hàm \textit{Trimf}, khớp với giới hạn của dòng LG AI DD.
+    \item \textbf{Đối với RQ2:} Bài toán xung đột mục tiêu được giải quyết thông qua kiến trúc luật phân tầng 3 lớp (19 quy luật), bao gồm các luật ghi đè an toàn để bảo vệ sợi vải.
+    \item \textbf{Đối với RQ3:} Năng lực đáp ứng cận biên được minh chứng qua sự chuyển dịch thông số mượt mà tại kịch bản "Giao thoa" và bề mặt trơn nhẵn của không gian điều khiển 3D.
+\end{itemize}
+
+\subsection{Hạn chế của mô hình}
+Dưới góc độ phân tích thuật toán, hệ thống hiện tại vẫn tồn tại một số nhược điểm:
+\begin{itemize}
+    \item \textbf{Đặc tính hình học:} Việc sử dụng 100\% hàm liên thuộc tam giác giúp giảm chi phí tính toán nhưng khiến mặt cong không gian chưa đạt độ bo tròn hoàn hảo như hàm \textit{Gaussian}.
+    \item \textbf{Cơ chế vòng hở:} Hệ thống hiện tại là vòng hở tĩnh, chưa có cơ chế cập nhật lại cường độ kích hoạt nếu môi trường lồng giặt thay đổi đột ngột giữa chu trình.
+\end{itemize}
 
 \subsection{Hướng phát triển tương lai}
+\begin{itemize}
+    \item \textbf{Nâng cấp ANFIS:} Tích hợp Machine Learning để hệ thống tự động học hỏi và tinh chỉnh tọa độ các hàm liên thuộc theo thói quen người dùng.
+    \item \textbf{Cơ chế vòng kín:} Kết nối cảm biến vật lý thực, cho phép tái đánh giá độ đục của nước liên tục để quyết định ngắt chu trình sớm.
+    \item \textbf{Tích hợp IoT \& Smart Home:} Bổ sung biến ngoại cảnh (nhiệt độ môi trường) và module WiFi để truyền tải báo cáo sinh thái đến thiết bị di động.
+\end{itemize}
 
-% ====================================================
+% ===================================================================
 % TÀI LIỆU THAM KHẢO
-% ====================================================
+% ===================================================================
 \newpage
 \begin{thebibliography}{9}
 \addcontentsline{toc}{section}{Tài liệu tham khảo}
-\bibitem{tlieng1} 
-Tên tác giả, \textit{Tên sách/Tài liệu tham khảo}, Nhà xuất bản, Năm.
+
+\bibitem{zadeh1965} 
+Zadeh, L. A. (1965). Fuzzy sets. \textit{Information and Control}, 8(3), 338–353.
+
+\bibitem{mamdani1975} 
+Mamdani, E. H., \& Assilian, S. (1975). An experiment in linguistic synthesis with a fuzzy logic controller. \textit{International Journal of Man-Machine Studies}, 7(1), 1–13.
+
 \bibitem{skfuzzy} 
-Tài liệu thư viện scikit-fuzzy, URL: \url{https://pythonhosted.org/scikit-fuzzy/}
+Warner, J., et al. (2019). \textit{scikit-fuzzy: A fuzzy logic toolkit for SciPy}. URL: \url{https://pythonhosted.org/scikit-fuzzy/}
+
+\bibitem{lg_specs} 
+LG Electronics. (2021). \textit{LG AI DD Inverter 10kg (FV1410S3B) Specifications \& User Manual}. URL: \url{https://www.lg.com/}
+
 \end{thebibliography}
 
 \end{document}

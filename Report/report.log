@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.14)  26 MAR 2026 00:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.14)  29 MAR 2026 15:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -795,7 +795,28 @@ File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \tikz@expandcount=\count339
  (C:\Users\GIGABYTE\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-))) (C:\Users\GIGABYTE\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarycalc.code.tex
+))) (C:\Users\GIGABYTE\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
+Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
+\multirow@colwidth=\skip102
+\multirow@cntb=\count340
+\multirow@dima=\skip103
+\bigstrutjot=\dimen292
+) (C:\Users\GIGABYTE\AppData\Local\Programs\MiKTeX\tex/latex/colortbl\colortbl.sty
+Package: colortbl 2024/10/29 v1.0k Color table columns (DPC)
+ (C:\Users\GIGABYTE\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
+\col@sep=\dimen293
+\ar@mcellbox=\box69
+\extrarowheight=\dimen294
+\NC@list=\toks42
+\extratabsurround=\skip104
+\backup@length=\skip105
+\ar@cellbox=\box70
+)
+\everycr=\toks43
+\minrowclearance=\skip106
+\rownum=\count341
+) (C:\Users\GIGABYTE\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarycalc.code.tex
 File: tikzlibrarycalc.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )
 
@@ -808,46 +829,46 @@ Package geometry Warning: Over-specification in `v'-direction.
 
 (C:\Users\GIGABYTE\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count340
+\l__color_backend_stack_int=\count342
 ) (report.aux
 Package babel Info: 'vietnamese' activates 'vietnamese' shorthands.
 (babel)             Reported on input line 8.
 )
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
  (C:\Users\GIGABYTE\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count341
-\scratchdimen=\dimen292
-\scratchbox=\box69
-\nofMPsegments=\count342
-\nofMParguments=\count343
-\everyMPshowfont=\toks42
-\MPscratchCnt=\count344
-\MPscratchDim=\dimen293
-\MPnumerator=\count345
-\makeMPintoPDFobject=\count346
-\everyMPtoPDFconversion=\toks43
+\scratchcounter=\count343
+\scratchdimen=\dimen295
+\scratchbox=\box71
+\nofMPsegments=\count344
+\nofMParguments=\count345
+\everyMPshowfont=\toks44
+\MPscratchCnt=\count346
+\MPscratchDim=\dimen296
+\MPnumerator=\count347
+\makeMPintoPDFobject=\count348
+\everyMPtoPDFconversion=\toks45
 ) (C:\Users\GIGABYTE\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -888,7 +909,7 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 28.
+Package hyperref Info: Link coloring OFF on input line 31.
 (report.out) (report.out)
 \@outlinefile=\write4
 \openout4 = `report.out'.
@@ -896,14 +917,19 @@ Package hyperref Info: Link coloring OFF on input line 28.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
-<logo.png, id=111, 289.08pt x 290.0436pt>
+<logo.png, id=177, 289.08pt x 290.0436pt>
 File: logo.png Graphic file (type png)
 <use logo.png>
-Package pdftex.def Info: logo.png  used on input line 47.
+Package pdftex.def Info: logo.png  used on input line 50.
 (pdftex.def)             Requested size: 170.71652pt x 171.28355pt.
  [1
 
-{C:/Users/GIGABYTE/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./logo.png>] [1] (report.toc
+{C:/Users/GIGABYTE/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./logo.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.95 \newpage
+              [1] (report.toc
 LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
  (C:\Users\GIGABYTE\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -915,43 +941,130 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write5
 \openout5 = `report.toc'.
 
- [2] (report.lof)
+ [2] [3] (report.lof)
 \tf@lof=\write6
 \openout6 = `report.lof'.
 
- [3] (report.lot)
+ [4] (report.lot)
 \tf@lot=\write7
 \openout7 = `report.lot'.
 
- [4]
+ [5]
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.135 \end{itemize}
-                    [1] [2] [3]
-LaTeX Font Info:    Trying to load font information for T5+cmtt on input line 207.
- (C:\Users\GIGABYTE\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmtt.fd
+l.146     \item \textbf
+                       {Điều khiển theo ngưỡng cứng (\textit{Hard-... [1]
+pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.172     \item \textbf
+                       {Logic kinh điển (\textit{Crisp Logic}):} Biểu d... [2]
+pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.205     \item \textbf
+                       {Suy diễn kết quả (\textit{Implication}):} Áp ... [3]
+pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.236 \end{itemize}
+                    [4]
+<images/input_cloth_amount.png, id=306, 416.2752pt x 331.2375pt>
+File: images/input_cloth_amount.png Graphic file (type png)
+<use images/input_cloth_amount.png>
+Package pdftex.def Info: images/input_cloth_amount.png  used on input line 252.
+(pdftex.def)             Requested size: 318.66948pt x 253.58286pt.
+<images/input_dirt_amount.png, id=307, 419.4069pt x 331.9602pt>
+File: images/input_dirt_amount.png Graphic file (type png)
+<use images/input_dirt_amount.png>
+Package pdftex.def Info: images/input_dirt_amount.png  used on input line 267.
+(pdftex.def)             Requested size: 318.66948pt x 252.24171pt.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.271 
+       [5 <./images/input_cloth_amount.png>]
+<images/input_dirt_type.png, id=312, 419.4069pt x 331.2375pt>
+File: images/input_dirt_type.png Graphic file (type png)
+<use images/input_dirt_type.png>
+Package pdftex.def Info: images/input_dirt_type.png  used on input line 283.
+(pdftex.def)             Requested size: 318.66948pt x 251.69257pt.
+ [6 <./images/input_dirt_amount.png>]
+<images/input_cloth_sensitivity.png, id=318, 416.2752pt x 330.9966pt>
+File: images/input_cloth_sensitivity.png Graphic file (type png)
+<use images/input_cloth_sensitivity.png>
+Package pdftex.def Info: images/input_cloth_sensitivity.png  used on input line 298.
+(pdftex.def)             Requested size: 318.66948pt x 253.39842pt.
+ [7 <./images/input_dirt_type.png> <./images/input_cloth_sensitivity.png>] [8]
+Underfull \hbox (badness 2486) in paragraph at lines 368--368
+[]|\T5/cmr/m/n/12 Rule 7/8: Ti�t
+ []
+
+LaTeX Font Info:    Trying to load font information for T5+cmtt on input line 385.
+(C:\Users\GIGABYTE\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmtt.fd
 File: t5cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-) [4] (report.aux)
+) [9]
+<images/gui.png, id=337, 574.39594pt x 1061.46562pt>
+File: images/gui.png Graphic file (type png)
+<use images/gui.png>
+Package pdftex.def Info: images/gui.png  used on input line 392.
+(pdftex.def)             Requested size: 295.90588pt x 546.83096pt.
+ [10]
+<images/tab_phantich.png, id=343, 896.59969pt x 1302.36563pt>
+File: images/tab_phantich.png Graphic file (type png)
+<use images/tab_phantich.png>
+Package pdftex.def Info: images/tab_phantich.png  used on input line 405.
+(pdftex.def)             Requested size: 409.71692pt x 595.14084pt.
+ [11 <./images/gui.png>] [12 <./images/tab_phantich.png>]
+<images/tab_sosanh.png, id=354, 911.65594pt x 1415.2875pt>
+File: images/tab_sosanh.png Graphic file (type png)
+<use images/tab_sosanh.png>
+Package pdftex.def Info: images/tab_sosanh.png  used on input line 415.
+(pdftex.def)             Requested size: 409.71692pt x 636.07446pt.
+ [13 <./images/tab_sosanh.png>]
+<images/tab_dothi.png, id=361, 909.3975pt x 760.34062pt>
+File: images/tab_dothi.png Graphic file (type png)
+<use images/tab_dothi.png>
+Package pdftex.def Info: images/tab_dothi.png  used on input line 425.
+(pdftex.def)             Requested size: 432.48051pt x 361.59482pt.
+<images/tab_3d.png, id=362, 910.90312pt x 797.98125pt>
+File: images/tab_3d.png Graphic file (type png)
+<use images/tab_3d.png>
+Package pdftex.def Info: images/tab_3d.png  used on input line 435.
+(pdftex.def)             Requested size: 386.96027pt x 338.99751pt.
+ [14 <./images/tab_dothi.png>] [15 <./images/tab_3d.png>]
+<images/3d_spin_heavy_duty.png, id=375, 680.0607pt x 531.1845pt>
+File: images/3d_spin_heavy_duty.png Graphic file (type png)
+<use images/3d_spin_heavy_duty.png>
+Package pdftex.def Info: images/3d_spin_heavy_duty.png  used on input line 480.
+(pdftex.def)             Requested size: 218.51521pt x 170.67955pt.
+<images/3d_spin_delicates.png, id=376, 673.5564pt x 531.1845pt>
+File: images/3d_spin_delicates.png Graphic file (type png)
+<use images/3d_spin_delicates.png>
+Package pdftex.def Info: images/3d_spin_delicates.png  used on input line 486.
+(pdftex.def)             Requested size: 218.51521pt x 172.3249pt.
+ [16 <./images/3d_spin_heavy_duty.png> <./images/3d_spin_delicates.png>] [17] [18] (report.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 63A464B1B88CB86D62C0130C60BB1F35;5699.
+(rerunfilecheck)             Checksum: 3580C4C5279BF88B58FC6C82189894AA;9823.
  ) 
 Here is how much of TeX's memory you used:
- 24897 strings out of 467867
- 458599 string characters out of 5416882
- 859670 words of memory out of 5000000
- 53349 multiletter control sequences out of 15000+600000
- 639696 words of font info for 67 fonts, out of 8000000 for 9000
+ 25330 strings out of 467867
+ 466872 string characters out of 5416882
+ 868949 words of memory out of 5000000
+ 53717 multiletter control sequences out of 15000+600000
+ 645925 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,11n,104p,456b,544s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\GIGABYTE\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnbx12.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr12.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnti12.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vntt12.pfb>
-Output written on report.pdf (9 pages, 349999 bytes).
+ 84i,12n,104p,888b,561s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\GIGABYTE\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnbx12.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnbxti10.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr10.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr12.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnti12.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnti8.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vntt12.pfb>
+Output written on report.pdf (24 pages, 3296971 bytes).
 PDF statistics:
- 245 PDF objects out of 1000 (max. 8388607)
- 36 named destinations out of 1000 (max. 500000)
- 234 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 481 PDF objects out of 1000 (max. 8388607)
+ 84 named destinations out of 1000 (max. 500000)
+ 417 words of extra memory for PDF output out of 10000 (max. 10000000)
 
