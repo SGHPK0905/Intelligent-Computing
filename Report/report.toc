@@ -1,7 +1,8 @@
 \babel@toc {vietnamese}{}\relax 
 \contentsline {section}{Lời cảm ơn}{1}{section*.1}%
-\contentsline {section}{Danh mục hình ảnh}{4}{section*.2}%
-\contentsline {section}{Danh mục bảng biểu}{5}{section*.3}%
+\contentsline {section}{Bảng phân công nhiệm vụ}{2}{section*.2}%
+\contentsline {section}{Danh mục hình ảnh}{5}{section*.4}%
+\contentsline {section}{Danh mục bảng biểu}{6}{section*.5}%
 \contentsline {section}{\numberline {1}Giới thiệu}{1}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Bối cảnh và đặt vấn đề}{1}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Mục tiêu và phạm vi nghiên cứu}{2}{subsection.1.2}%
