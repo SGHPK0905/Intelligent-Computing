@@ -3,42 +3,60 @@
 \contentsline {section}{Danh mục hình ảnh}{4}{section*.2}%
 \contentsline {section}{Danh mục bảng biểu}{5}{section*.3}%
 \contentsline {section}{\numberline {1}Giới thiệu}{1}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Đặt vấn đề}{1}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Câu hỏi nghiên cứu (\textit {Research Questions})}{1}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Các giải pháp tương đương (\textit {Related Works})}{2}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Ý nghĩa thực tiễn}{2}{subsection.1.4}%
-\contentsline {subsection}{\numberline {1.5}Cấu trúc báo cáo}{2}{subsection.1.5}%
-\contentsline {section}{\numberline {2}Cơ sở lý thuyết}{2}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Tổng quan về Logic Mờ (\textit {Fuzzy Logic})}{2}{subsection.2.1}%
-\contentsline {subsubsection}{\numberline {2.1.1}Lịch sử hình thành và khái niệm cốt lõi}{2}{subsubsection.2.1.1}%
-\contentsline {subsubsection}{\numberline {2.1.2}Phân biệt Logic kinh điển và Logic mờ}{3}{subsubsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.2}Biến ngôn ngữ và Hàm liên thuộc}{3}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Khái niệm Biến ngôn ngữ}{3}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}Mô hình toán học của Hàm liên thuộc tam giác (\textit {Trimf})}{3}{subsubsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.3}Hệ suy diễn Mamdani}{3}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Giải mờ bằng phương pháp Trọng tâm (\textit {Center of Area - COA})}{4}{subsection.2.4}%
-\contentsline {section}{\numberline {3}Thiết kế hệ thống điều khiển máy giặt}{4}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Sơ đồ khối hệ thống điều khiển}{4}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Định nghĩa không gian và tham số biến đầu vào}{5}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Khối lượng quần áo}{5}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Độ bẩn}{5}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Mức dầu mỡ}{6}{subsubsection.3.2.3}%
-\contentsline {subsubsection}{\numberline {3.2.4}Độ nhạy cảm vải}{7}{subsubsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.3}Định nghĩa không gian và tham số biến đầu ra}{8}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}Thời gian giặt}{8}{subsubsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.2}Tốc độ vắt}{8}{subsubsection.3.3.2}%
-\contentsline {subsubsection}{\numberline {3.3.3}Lượng nước và Lượng xà phòng}{8}{subsubsection.3.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.4}Nhiệt độ nước}{8}{subsubsection.3.3.4}%
-\contentsline {subsection}{\numberline {3.4}Tập luật mờ (\textit {Fuzzy Rule Base})}{9}{subsection.3.4}%
-\contentsline {section}{\numberline {4}Cài đặt và Mô phỏng}{9}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Môi trường và thư viện phát triển}{9}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Giao diện người dùng (GUI) và Trực quan hóa kết quả}{10}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Phân hệ đầu vào (Inputs Configuration)}{10}{subsubsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2}Phân hệ đầu ra và các Tab phân tích chuyên môn}{11}{subsubsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.3}Kết quả kiểm thử qua các kịch bản (\textit {Test Cases})}{15}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Phân tích không gian điều khiển (\textit {3D Control Surface})}{16}{subsection.4.4}%
-\contentsline {section}{\numberline {5}Kết luận và Hướng phát triển}{16}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Kết quả đạt được}{16}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Hạn chế của mô hình}{17}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Hướng phát triển tương lai}{17}{subsection.5.3}%
-\contentsline {section}{Tài liệu tham khảo}{18}{subsection.5.3}%
+\contentsline {subsection}{\numberline {1.1}Bối cảnh và đặt vấn đề}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Mục tiêu và phạm vi nghiên cứu}{2}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Câu hỏi nghiên cứu}{3}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Các giải pháp tương đương}{4}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {1.4.1}Điều khiển tỷ lệ - tích phân - vi phân (PID)}{4}{subsubsection.1.4.1}%
+\contentsline {subsubsection}{\numberline {1.4.2}Logic nhị phân và Ngưỡng cứng}{4}{subsubsection.1.4.2}%
+\contentsline {subsubsection}{\numberline {1.4.3}Mạng nơ-ron nhân tạo (ANN)}{4}{subsubsection.1.4.3}%
+\contentsline {subsubsection}{\numberline {1.4.4}Tính ưu việt của Hệ suy diễn Logic Mờ}{4}{subsubsection.1.4.4}%
+\contentsline {subsection}{\numberline {1.5}Ý nghĩa thực tiễn}{5}{subsection.1.5}%
+\contentsline {subsubsection}{\numberline {1.5.1}Tối ưu hóa tài nguyên sinh thái}{5}{subsubsection.1.5.1}%
+\contentsline {subsubsection}{\numberline {1.5.2}Bảo vệ cấu trúc vi mô của vật liệu và Lợi ích kinh tế}{5}{subsubsection.1.5.2}%
+\contentsline {subsubsection}{\numberline {1.5.3}Giảm ứng suất cơ học và Kéo dài tuổi thọ thiết bị}{5}{subsubsection.1.5.3}%
+\contentsline {subsubsection}{\numberline {1.5.4}Tiềm năng thương mại hóa và Nâng tầm trải nghiệm người dùng}{5}{subsubsection.1.5.4}%
+\contentsline {subsection}{\numberline {1.6}Cấu trúc báo cáo}{6}{subsection.1.6}%
+\contentsline {section}{\numberline {2}Cơ sở lý thuyết}{6}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Tổng quan về Logic Mờ}{6}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Lịch sử hình thành và khái niệm cốt lõi}{6}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Sự khác biệt nền tảng giữa Logic Kinh điển và Logic Mờ}{7}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}Ứng dụng Logic mờ trong hệ thống điều khiển máy giặt}{7}{subsubsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.2}Biến ngôn ngữ và Hàm liên thuộc}{8}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Khái quát về Biến ngôn ngữ}{8}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Mô hình toán học của Hàm liên thuộc tam giác (Trimf)}{10}{subsubsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.3}Hệ suy diễn Mamdani và Cơ chế nội suy dữ liệu}{11}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Giải mờ bằng phương pháp Trọng tâm}{12}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Sự cần thiết của quá trình Giải mờ}{12}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Lựa chọn phương pháp Trọng tâm}{12}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Bản chất toán học và thuật toán thực thi của phương pháp COA}{13}{subsubsection.2.4.3}%
+\contentsline {section}{\numberline {3}Thiết kế hệ thống điều khiển máy giặt}{13}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Sơ đồ khối hệ thống điều khiển}{13}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Định nghĩa không gian và tham số biến đầu vào (Inputs)}{14}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Khối lượng quần áo}{15}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Độ bẩn}{15}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Mức dầu mỡ/ Loại bẩn}{16}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Độ nhạy cảm vải}{17}{subsubsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.3}Định nghĩa không gian và tham số biến đầu ra (Outputs)}{18}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Thời gian giặt}{18}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Tốc độ vắt}{19}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Lượng nước}{20}{subsubsection.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.4}Lượng xà phòng}{21}{subsubsection.3.3.4}%
+\contentsline {subsubsection}{\numberline {3.3.5}Nhiệt độ nước}{22}{subsubsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.4}Tập luật mờ}{23}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Bài toán không gian tổ hợp và Kỹ thuật tối ưu hóa tập luật}{23}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Cấu trúc và Phân tầng hệ thống luật mờ}{23}{subsubsection.3.4.2}%
+\contentsline {section}{\numberline {4}Cài đặt và Mô phỏng}{25}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Môi trường và thư viện phát triển}{25}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Giao diện người dùng và Trực quan hóa kết quả}{25}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Cấu hình đầu vào}{25}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Phân hệ đầu ra và các Tab phân tích chuyên môn}{26}{subsubsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.3}Kết quả kiểm thử qua các kịch bản thực tế}{30}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Phân tích không gian điều khiển 3D}{31}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Kết luận và Hướng phát triển}{32}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Kết quả đạt được}{32}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Hạn chế của mô hình}{32}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Hướng phát triển tương lai}{32}{subsection.5.3}%
+\contentsline {section}{Tài liệu tham khảo}{34}{subsection.5.3}%
+\contentsline {section}{\numberline {A}Phụ lục: Ma trận cơ sở tri thức (19 Luật Mờ)}{35}{appendix.A}%
+\contentsline {section}{\numberline {A}Phụ lục: Ma trận cơ sở tri thức (19 Luật Mờ)}{36}{appendix.A}%

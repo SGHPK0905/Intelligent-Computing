@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.14)  5 APR 2026 09:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.14)  20 APR 2026 12:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -816,6 +816,39 @@ Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
 \everycr=\toks43
 \minrowclearance=\skip106
 \rownum=\count341
+) (C:\Users\GIGABYTE\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+\lst@mode=\count342
+\lst@gtempboxa=\box71
+\lst@token=\toks44
+\lst@length=\count343
+\lst@currlwidth=\dimen295
+\lst@column=\count344
+\lst@pos=\count345
+\lst@lostspace=\dimen296
+\lst@width=\dimen297
+\lst@newlines=\count346
+\lst@lineno=\count347
+\lst@maxwidth=\dimen298
+ (C:\Users\GIGABYTE\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty
+File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
+) (C:\Users\GIGABYTE\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
+\c@lstnumber=\count348
+\lst@skipnumbers=\count349
+\lst@framebox=\box72
+) (C:\Users\GIGABYTE\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+File: listings.cfg 2025/11/14 1.11b listings configuration
+))
+Package: listings 2025/11/14 1.11b (Carsten Heinz)
+
+==> First Aid for listings.sty no longer applied!
+    Expected:
+        2024/09/23 1.10c (Carsten Heinz)
+    but found:
+        2025/11/14 1.11b (Carsten Heinz)
+    so I'm assuming it got fixed.
+(C:\Users\GIGABYTE\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2025/11/14 1.11b listings language file
 ) (C:\Users\GIGABYTE\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarycalc.code.tex
 File: tikzlibrarycalc.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )
@@ -829,46 +862,46 @@ Package geometry Warning: Over-specification in `v'-direction.
 
 (C:\Users\GIGABYTE\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count342
+\l__color_backend_stack_int=\count350
 ) (report.aux
 Package babel Info: 'vietnamese' activates 'vietnamese' shorthands.
 (babel)             Reported on input line 8.
 )
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T5/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
  (C:\Users\GIGABYTE\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count343
-\scratchdimen=\dimen295
-\scratchbox=\box71
-\nofMPsegments=\count344
-\nofMParguments=\count345
-\everyMPshowfont=\toks44
-\MPscratchCnt=\count346
-\MPscratchDim=\dimen296
-\MPnumerator=\count347
-\makeMPintoPDFobject=\count348
-\everyMPtoPDFconversion=\toks45
+\scratchcounter=\count351
+\scratchdimen=\dimen299
+\scratchbox=\box73
+\nofMPsegments=\count352
+\nofMParguments=\count353
+\everyMPshowfont=\toks45
+\MPscratchCnt=\count354
+\MPscratchDim=\dimen300
+\MPnumerator=\count355
+\makeMPintoPDFobject=\count356
+\everyMPtoPDFconversion=\toks46
 ) (C:\Users\GIGABYTE\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -909,18 +942,20 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 31.
+Package hyperref Info: Link coloring OFF on input line 43.
 (report.out) (report.out)
 \@outlinefile=\write4
 \openout4 = `report.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
+Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-<logo.png, id=177, 289.08pt x 290.0436pt>
+\c@lstlisting=\count357
+<logo.png, id=248, 289.08pt x 290.0436pt>
 File: logo.png Graphic file (type png)
 <use logo.png>
-Package pdftex.def Info: logo.png  used on input line 50.
+Package pdftex.def Info: logo.png  used on input line 62.
 (pdftex.def)             Requested size: 170.71652pt x 171.28355pt.
  [1
 
@@ -928,8 +963,8 @@ Package pdftex.def Info: logo.png  used on input line 50.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.96 \newpage
-              [1] (report.toc
+l.108 \newpage
+               [1] (report.toc
 LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
  (C:\Users\GIGABYTE\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -937,11 +972,11 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
  (C:\Users\GIGABYTE\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-))
+) [2])
 \tf@toc=\write5
 \openout5 = `report.toc'.
 
- [2] [3] (report.lof)
+ [3] (report.lof)
 \tf@lof=\write6
 \openout6 = `report.lof'.
 
@@ -953,118 +988,248 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.147     \item \textbf
-                       {ƒêi·ªÅu khi·ªÉn theo ng∆∞·ª°ng c·ª©ng (\textit{Hard-... [1]
+l.149 
+       [1]
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.173     \item \textbf
-                       {Logic kinh ƒëi·ªÉn (\textit{Crisp Logic}):} Bi·ªÉu d... [2]
+l.165 
+       [2]
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.206     \item \textbf
-                       {Suy di·ªÖn k·∫øt qu·∫£ (\textit{Implication}):} √Åp ... [3]
+l.182 
+       [3]
 pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.237 \end{itemize}
-                    [4]
-<images/input_cloth_amount.png, id=306, 416.2752pt x 331.2375pt>
-File: images/input_cloth_amount.png Graphic file (type png)
-<use images/input_cloth_amount.png>
-Package pdftex.def Info: images/input_cloth_amount.png  used on input line 253.
-(pdftex.def)             Requested size: 318.66948pt x 253.58286pt.
-<images/input_dirt_amount.png, id=307, 419.4069pt x 331.9602pt>
-File: images/input_dirt_amount.png Graphic file (type png)
-<use images/input_dirt_amount.png>
-Package pdftex.def Info: images/input_dirt_amount.png  used on input line 268.
-(pdftex.def)             Requested size: 318.66948pt x 252.24171pt.
-
+l.203     \item \textbf
+                       {Ki·ªÉm so√°t an to√†n tuy·ªát ƒë·ªëi:} Kh√°c v·ªõi A... [4]
 pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.272 
-       [5 <./images/input_cloth_amount.png>]
-<images/input_dirt_type.png, id=312, 419.4069pt x 331.2375pt>
+l.221 
+       [5] [6] [7] [8] [9] [10]
+
+LaTeX Warning: Command \` invalid in math mode on input line 386.
+
+Missing character: There is no ∑ in font cmr8!
+[11]
+
+LaTeX Warning: Command \h invalid in math mode on input line 395.
+
+
+LaTeX Warning: Command \d invalid in math mode on input line 395.
+
+
+LaTeX Warning: Command \d invalid in math mode on input line 395.
+
+
+LaTeX Warning: Command \d invalid in math mode on input line 395.
+
+
+LaTeX Warning: Command \d invalid in math mode on input line 395.
+
+Missing character: There is no Í in font cmr8!
+Missing character: There is no Ò in font cmr8!
+Missing character: There is no ™ in font cmr8!
+Missing character: There is no ™ in font cmr8!
+Missing character: There is no ™ in font cmr8!
+[12] [13] [14]
+<images/input_cloth_amount.png, id=453, 416.2752pt x 331.2375pt>
+File: images/input_cloth_amount.png Graphic file (type png)
+<use images/input_cloth_amount.png>
+Package pdftex.def Info: images/input_cloth_amount.png  used on input line 479.
+(pdftex.def)             Requested size: 318.66948pt x 253.58286pt.
+ [15 <./images/input_cloth_amount.png>]
+<images/input_dirt_amount.png, id=460, 419.4069pt x 331.9602pt>
+File: images/input_dirt_amount.png Graphic file (type png)
+<use images/input_dirt_amount.png>
+Package pdftex.def Info: images/input_dirt_amount.png  used on input line 497.
+(pdftex.def)             Requested size: 318.66948pt x 252.24171pt.
+<images/input_dirt_type.png, id=461, 419.4069pt x 331.2375pt>
 File: images/input_dirt_type.png Graphic file (type png)
 <use images/input_dirt_type.png>
-Package pdftex.def Info: images/input_dirt_type.png  used on input line 284.
+Package pdftex.def Info: images/input_dirt_type.png  used on input line 515.
 (pdftex.def)             Requested size: 318.66948pt x 251.69257pt.
- [6 <./images/input_dirt_amount.png>]
-<images/input_cloth_sensitivity.png, id=318, 416.2752pt x 330.9966pt>
+ [16 <./images/input_dirt_amount.png>]
+<images/input_cloth_sensitivity.png, id=467, 416.2752pt x 330.9966pt>
 File: images/input_cloth_sensitivity.png Graphic file (type png)
 <use images/input_cloth_sensitivity.png>
-Package pdftex.def Info: images/input_cloth_sensitivity.png  used on input line 299.
+Package pdftex.def Info: images/input_cloth_sensitivity.png  used on input line 533.
 (pdftex.def)             Requested size: 318.66948pt x 253.39842pt.
- [7 <./images/input_dirt_type.png> <./images/input_cloth_sensitivity.png>] [8]
-Underfull \hbox (badness 2486) in paragraph at lines 369--369
+ [17 <./images/input_dirt_type.png>]
+<images/output_wash_time.png, id=473, 419.6478pt x 330.2739pt>
+File: images/output_wash_time.png Graphic file (type png)
+<use images/output_wash_time.png>
+Package pdftex.def Info: images/output_wash_time.png  used on input line 557.
+(pdftex.def)             Requested size: 318.66948pt x 250.81421pt.
+ [18 <./images/input_cloth_sensitivity.png>]
+<images/output_spin_speed.png, id=479, 422.7795pt x 331.7193pt>
+File: images/output_spin_speed.png Graphic file (type png)
+<use images/output_spin_speed.png>
+Package pdftex.def Info: images/output_spin_speed.png  used on input line 577.
+(pdftex.def)             Requested size: 318.66948pt x 250.0492pt.
+ [19 <./images/output_wash_time.png>]
+<images/output_water_amount.png, id=486, 419.4069pt x 330.033pt>
+File: images/output_water_amount.png Graphic file (type png)
+<use images/output_water_amount.png>
+Package pdftex.def Info: images/output_water_amount.png  used on input line 595.
+(pdftex.def)             Requested size: 318.66948pt x 250.77731pt.
+ [20 <./images/output_spin_speed.png>]
+<images/output_detergent.png, id=492, 419.4069pt x 330.033pt>
+File: images/output_detergent.png Graphic file (type png)
+<use images/output_detergent.png>
+Package pdftex.def Info: images/output_detergent.png  used on input line 613.
+(pdftex.def)             Requested size: 318.66948pt x 250.77731pt.
+ [21 <./images/output_water_amount.png>]
+<images/output_water_temp.png, id=498, 419.4069pt x 330.2739pt>
+File: images/output_water_temp.png Graphic file (type png)
+<use images/output_water_temp.png>
+Package pdftex.def Info: images/output_water_temp.png  used on input line 631.
+(pdftex.def)             Requested size: 318.66948pt x 250.96036pt.
+ [22 <./images/output_detergent.png>] [23 <./images/output_water_temp.png>]
+Underfull \hbox (badness 2486) in paragraph at lines 674--674
 []|\T5/cmr/m/n/12 Rule 7/8: Ti∏t
  []
 
-LaTeX Font Info:    Trying to load font information for T5+cmtt on input line 386.
-(C:\Users\GIGABYTE\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmtt.fd
+[24]
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 687.
+LaTeX Font Info:    Trying to load font information for T5+cmtt on input line 687.
+ (C:\Users\GIGABYTE\AppData\Local\Programs\MiKTeX\tex/latex/vntex\t5cmtt.fd
 File: t5cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-) [9]
-<images/gui.png, id=337, 574.39594pt x 1061.46562pt>
+)
+LaTeX Font Info:    Font shape `T5/cmtt/bx/n' in size <10.95> not available
+(Font)              Font shape `T5/cmtt/m/n' tried instead on input line 688.
+<images/gui.png, id=515, 574.39594pt x 1061.46562pt>
 File: images/gui.png Graphic file (type png)
 <use images/gui.png>
-Package pdftex.def Info: images/gui.png  used on input line 393.
+Package pdftex.def Info: images/gui.png  used on input line 719.
 (pdftex.def)             Requested size: 295.90588pt x 546.83096pt.
- [10]
-<images/tab_phantich.png, id=343, 896.59969pt x 1302.36563pt>
+ [25]
+<images/tab_phantich.png, id=545, 896.59969pt x 1302.36563pt>
 File: images/tab_phantich.png Graphic file (type png)
 <use images/tab_phantich.png>
-Package pdftex.def Info: images/tab_phantich.png  used on input line 406.
+Package pdftex.def Info: images/tab_phantich.png  used on input line 732.
 (pdftex.def)             Requested size: 409.71692pt x 595.14084pt.
- [11 <./images/gui.png>] [12 <./images/tab_phantich.png>]
-<images/tab_sosanh.png, id=354, 911.65594pt x 1415.2875pt>
+ [26 <./images/gui.png>] [27 <./images/tab_phantich.png>]
+<images/tab_sosanh.png, id=556, 911.65594pt x 1415.2875pt>
 File: images/tab_sosanh.png Graphic file (type png)
 <use images/tab_sosanh.png>
-Package pdftex.def Info: images/tab_sosanh.png  used on input line 416.
+Package pdftex.def Info: images/tab_sosanh.png  used on input line 742.
 (pdftex.def)             Requested size: 409.71692pt x 636.07446pt.
- [13 <./images/tab_sosanh.png>]
-<images/tab_dothi.png, id=361, 909.3975pt x 760.34062pt>
+ [28 <./images/tab_sosanh.png>]
+<images/tab_dothi.png, id=562, 909.3975pt x 760.34062pt>
 File: images/tab_dothi.png Graphic file (type png)
 <use images/tab_dothi.png>
-Package pdftex.def Info: images/tab_dothi.png  used on input line 426.
+Package pdftex.def Info: images/tab_dothi.png  used on input line 752.
 (pdftex.def)             Requested size: 432.48051pt x 361.59482pt.
-<images/tab_3d.png, id=362, 910.90312pt x 797.98125pt>
+<images/tab_3d.png, id=563, 910.90312pt x 797.98125pt>
 File: images/tab_3d.png Graphic file (type png)
 <use images/tab_3d.png>
-Package pdftex.def Info: images/tab_3d.png  used on input line 436.
+Package pdftex.def Info: images/tab_3d.png  used on input line 762.
 (pdftex.def)             Requested size: 386.96027pt x 338.99751pt.
- [14 <./images/tab_dothi.png>] [15 <./images/tab_3d.png>]
-<images/3d_spin_heavy_duty.png, id=375, 680.0607pt x 531.1845pt>
+ [29 <./images/tab_dothi.png>] [30 <./images/tab_3d.png>]
+<images/3d_spin_heavy_duty.png, id=576, 680.0607pt x 531.1845pt>
 File: images/3d_spin_heavy_duty.png Graphic file (type png)
 <use images/3d_spin_heavy_duty.png>
-Package pdftex.def Info: images/3d_spin_heavy_duty.png  used on input line 481.
+Package pdftex.def Info: images/3d_spin_heavy_duty.png  used on input line 812.
 (pdftex.def)             Requested size: 218.51521pt x 170.67955pt.
-<images/3d_spin_delicates.png, id=376, 673.5564pt x 531.1845pt>
+<images/3d_spin_delicates.png, id=577, 673.5564pt x 531.1845pt>
 File: images/3d_spin_delicates.png Graphic file (type png)
 <use images/3d_spin_delicates.png>
-Package pdftex.def Info: images/3d_spin_delicates.png  used on input line 487.
+Package pdftex.def Info: images/3d_spin_delicates.png  used on input line 818.
 (pdftex.def)             Requested size: 218.51521pt x 172.3249pt.
- [16 <./images/3d_spin_heavy_duty.png> <./images/3d_spin_delicates.png>] [17] [18] (report.aux)
+ [31 <./images/3d_spin_heavy_duty.png> <./images/3d_spin_delicates.png>] [32] [33] [34] [35]
+pdfTeX warning (ext4): destination with the same identifier (name{appendix.A}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.885 ...∫≠n c∆° s·ªü tri th·ª©c (19 Lu·∫≠t M·ªù)}
+                                                  
+Underfull \hbox (badness 10000) in paragraph at lines 941--941
+[]|\T5/cmr/m/n/12 ^^^Î b©n(Nhi∑u) AND MÔ(Nhi∑u)
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 941--941
+[]|\T5/cmr/m/n/12 ThÌi gian(Rßt d†i), V≠t(Rßt cao),
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 941--941
+\T5/cmr/m/n/12 N˜Óc(Nhi∑u), X† ph·ng(Nhi∑u), Nhiªt
+ []
+
+
+Underfull \hbox (badness 1406) in paragraph at lines 941--941
+[]|\T5/cmr/m/n/12 ^^^Î b©n(ùt) AND MÔ(KhÊng) AND
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 941--941
+\T5/cmr/m/n/12 V£i(Rßt nh§y c£m) AND KhËi
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 941--941
+[]|\T5/cmr/m/n/12 ThÌi gian(Rßt ng≠n), V≠t(Rßt thßp),
+ []
+
+
+Underfull \hbox (badness 4048) in paragraph at lines 941--941
+[]|\T5/cmr/m/n/12 ^^^Î b©n(V¯a) AND MÔ(HÈn hÒp)
+ []
+
+
+Underfull \hbox (badness 1406) in paragraph at lines 941--941
+\T5/cmr/m/n/12 AND V£i(Bºnh th˜Ìng) AND KhËi
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 941--941
+[]|\T5/cmr/m/n/12 ThÌi gian(V¯a), V≠t(V¯a), N˜Óc(Bºnh
+ []
+
+
+Underfull \hbox (badness 1895) in paragraph at lines 941--941
+\T5/cmr/m/n/12 th˜Ìng), X† ph·ng(Bºnh th˜Ìng), Nhiªt
+ []
+
+
+Underfull \hbox (badness 1163) in paragraph at lines 941--941
+[]|\T5/cmr/m/n/12 ^^^Î b©n(Nhi∑u) AND MÔ(HÈn hÒp)
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 941--941
+[]|\T5/cmr/m/n/12 ^^^Î b©n(V¯a) AND MÔ(KhÊng)
+ []
+
+
+Underfull \hbox (badness 1406) in paragraph at lines 941--941
+\T5/cmr/m/n/12 AND V£i(Bºnh th˜Ìng) AND KhËi
+ []
+
+[36] (report.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 3580C4C5279BF88B58FC6C82189894AA;9823.
+(rerunfilecheck)             Checksum: 73328DC3C634B95D89037191C9029DB3;15205.
  ) 
 Here is how much of TeX's memory you used:
- 25330 strings out of 467867
- 466872 string characters out of 5416882
- 868949 words of memory out of 5000000
- 53717 multiletter control sequences out of 15000+600000
- 645925 words of font info for 74 fonts, out of 8000000 for 9000
+ 27239 strings out of 467867
+ 493342 string characters out of 5416882
+ 1218603 words of memory out of 5000000
+ 55552 multiletter control sequences out of 15000+600000
+ 643757 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,12n,104p,888b,561s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\GIGABYTE\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnbx12.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnbxti10.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr10.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr12.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnti12.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnti8.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vntt12.pfb>
-Output written on report.pdf (24 pages, 3298230 bytes).
+ 84i,12n,104p,1325b,1307s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\GIGABYTE\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnbx12.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnbxti10.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr10.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr12.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr8.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnti12.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vntt10.pfb><C:/Users/GIGABYTE/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vntt12.pfb>
+Output written on report.pdf (42 pages, 4126288 bytes).
 PDF statistics:
- 481 PDF objects out of 1000 (max. 8388607)
- 84 named destinations out of 1000 (max. 500000)
- 417 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 710 PDF objects out of 1000 (max. 8388607)
+ 144 named destinations out of 1000 (max. 500000)
+ 586 words of extra memory for PDF output out of 10000 (max. 10000000)
 
